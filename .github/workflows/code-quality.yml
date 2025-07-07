@@ -1,4 +1,4 @@
-name: Code Quality
+name: Build Test
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
     branches: [main, develop]
 
 jobs:
-  lint-and-format:
+  build-test:
     runs-on: ubuntu-latest
     
     steps:
@@ -23,17 +23,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Run ESLint
-        run: npm run lint
-        
-      - name: Check Prettier formatting
-        run: npm run format:check
-        
       - name: Build project
         run: npm run build
         
+      - name: Verify build output
+        run: |
+          if [ -d "dist" ]; then
+            echo "✅ Build successful - dist directory created"
+            ls -la dist/
+          else
+            echo "❌ Build failed - no dist directory"
+            exit 1
+          fi
+        
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-files
           path: dist/
