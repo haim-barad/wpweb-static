@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form Component Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .example-section {
+      margin: 40px 0;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+  </style>
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Include your main CSS -->
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <h1>Contact Form Component Examples</h1>
+  
+  <div class="example-section">
+    <h2>Home Page Style Contact Form</h2>
+    <p>This contact form includes pricing plan options suitable for the home page.</p>
+    <div id="home-contact-form"></div>
+  </div>
+
+  <div class="example-section">
+    <h2>Services Page Style Contact Form</h2>
+    <p>This contact form includes service options suitable for the services page.</p>
+    <div id="services-contact-form"></div>
+  </div>
+
+  <div class="example-section">
+    <h2>Custom Service Options</h2>
+    <p>This contact form demonstrates custom service options.</p>
+    <div id="custom-contact-form"></div>
+  </div>
+
+  <script type="module">
+    import { ContactForm } from './contact-form.js'
+
+    // Home page style form
+    new ContactForm('#home-contact-form', {
+      pageType: 'home',
+      enableAnalytics: true
+    })
+
+    // Services page style form
+    new ContactForm('#services-contact-form', {
+      pageType: 'services',
+      enableAnalytics: true
+    })
+
+    // Custom service options
+    new ContactForm('#custom-contact-form', {
+      pageType: 'custom',
+      enableAnalytics: true,
+      customServiceOptions: `
+        <option value="web-design">Web Design</option>
+        <option value="branding">Branding & Logo Design</option>
+        <option value="marketing">Digital Marketing</option>
+        <option value="consulting">Business Consulting</option>
+      `
+    })
+
+    // Example of analytics callback
+    window.contactFormAnalytics = function(eventName, properties) {
+      console.log('📊 Analytics Event:', eventName, properties)
+    }
+
+    // Example of URL parameter handling
+    // Try adding ?service=pro to the URL to see pre-selection
+    console.log('🚀 Contact Form Components loaded successfully!')
+    console.log('💡 Try adding ?service=pro to the URL to see service pre-selection')
+  </script>
+</body>
+</html>
