@@ -9,6 +9,8 @@
   --primary-500: #4338CA;
   --primary-600: #3730A3;
   --primary-700: #312E81;
+  --primary-300: #A5B4FC;
+  --primary-200: #C7D2FE;
   --secondary-500: #06B6D4;
   --secondary-600: #0891B2;
   --accent-500: #10B981;
@@ -213,7 +215,10 @@ h6 { font-size: var(--text-base); font-weight: 600; }
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  background: 
+    radial-gradient(ellipse at top, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>')
+  ;
   pointer-events: none;
 }
 
@@ -682,27 +687,27 @@ section {
 }
 
 .pricing-card.featured .amount {
-  color: white;
+  color: var(--primary-500);
 }
 
 .plan-description {
   font-size: 0.9rem;
-  color: var(--wpweb-gray);
+  color: var(--gray-500);
   margin-top: 0.5rem;
   font-style: italic;
 }
 
 .pricing-card.featured .plan-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--gray-600);
 }
 
 .period {
   font-size: 1rem;
-  color: #666;
+  color: var(--gray-500);
 }
 
 .pricing-card.featured .period {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--gray-600);
 }
 
 .pricing-features {
@@ -736,8 +741,8 @@ section {
 
 .btn-outline {
   background: transparent;
-  border: 2px solid var(--wpweb-primary);
-  color: var(--wpweb-primary);
+  border: 2px solid var(--primary-500);
+  color: var(--primary-500);
   padding: 0.8rem 2rem;
   border-radius: 6px;
   text-decoration: none;
@@ -747,19 +752,19 @@ section {
 }
 
 .btn-outline:hover {
-  background: var(--wpweb-primary);
+  background: var(--primary-500);
   color: white;
   transform: translateY(-2px);
 }
 
 .pricing-card.featured .btn-outline {
-  border-color: white;
-  color: white;
+  border-color: var(--primary-500);
+  color: var(--primary-500);
 }
 
 .pricing-card.featured .btn-outline:hover {
-  background: white;
-  color: #667eea;
+  background: var(--primary-500);
+  color: white;
 }
 
 /* Features Section */
@@ -933,10 +938,15 @@ section {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
 }
 
 .stat-item {
-  padding: var(--space-6);
+  padding: var(--space-4);
 }
 
 .stat-number {
