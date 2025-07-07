@@ -1,0 +1,11 @@
+# Handle trailing slashes
+/services/ /services.html 301
+/index/ / 301
+
+# Redirect common WordPress paths to static equivalents
+/wp-admin/* / 302
+/wp-login.php / 302
+/xmlrpc.php / 302
+
+# Handle 404s by serving index.html (SPA fallback)
+/* /index.html 404

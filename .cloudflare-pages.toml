@@ -1,0 +1,30 @@
+# Cloudflare Pages Configuration
+# This file contains the configuration for deploying to Cloudflare Pages
+
+[build]
+command = "npm run build"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "18"
+NPM_VERSION = "9"
+
+# Environment variables for the build process
+[env]
+# Formspree endpoint (to be set in Cloudflare Pages dashboard)
+# FORMSPREE_ENDPOINT = "https://formspree.io/f/movwzokj"
+
+# Analytics configuration
+GOOGLE_ANALYTICS_ID = ""
+
+# Contact form configuration
+CONTACT_FORM_ENDPOINT = "https://formspree.io/f/movwzokj"
+
+# Site configuration
+SITE_URL = "https://wpweb-static.pages.dev"
+SITE_NAME = "WPWeb Static"
+SITE_DESCRIPTION = "Professional WordPress maintenance and security services"
+
+# Performance optimization
+VITE_BUILD_SOURCEMAP = "false"
+VITE_BUILD_MINIFY = "true"

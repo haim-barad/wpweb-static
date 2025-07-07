@@ -1,0 +1,61 @@
+# Cache static assets for 1 year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# Cache images for 1 month
+*.png
+  Cache-Control: public, max-age=2592000
+  X-Content-Type-Options: nosniff
+
+*.jpg
+  Cache-Control: public, max-age=2592000
+  X-Content-Type-Options: nosniff
+
+*.jpeg
+  Cache-Control: public, max-age=2592000
+  X-Content-Type-Options: nosniff
+
+*.svg
+  Cache-Control: public, max-age=2592000
+  X-Content-Type-Options: nosniff
+
+*.webp
+  Cache-Control: public, max-age=2592000
+  X-Content-Type-Options: nosniff
+
+# Cache CSS and JS for 1 month
+*.css
+  Cache-Control: public, max-age=2592000
+  X-Content-Type-Options: nosniff
+
+*.js
+  Cache-Control: public, max-age=2592000
+  X-Content-Type-Options: nosniff
+
+# HTML files - short cache with validation
+/*
+  Cache-Control: public, max-age=300, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Fonts
+*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+*.woff
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# Manifest and robots
+/manifest.json
+  Cache-Control: public, max-age=86400
+  X-Content-Type-Options: nosniff
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+  X-Content-Type-Options: nosniff

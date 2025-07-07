@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://wpweb.org/sitemap.xml
+
+# Disallow common admin/system files
+Disallow: /admin
+Disallow: /private/
+Disallow: *.json$
+Disallow: *.txt$
+Disallow: /test-reports/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+
+# Allow CSS and JS files
+Allow: *.css$
+Allow: *.js$
+Allow: *.png$
+Allow: *.jpg$
+Allow: *.svg$
+Allow: *.webp$
