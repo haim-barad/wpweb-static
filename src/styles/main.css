@@ -930,32 +930,6 @@ section {
   font-size: var(--text-sm);
 }
 
-/* Stats Row */
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--space-8);
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  background: var(--white);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-100);
-}
-
-.stat-item {
-  padding: var(--space-4);
-}
-
-.stat-number {
-  font-size: var(--text-4xl);
-  font-weight: 800;
-  color: var(--primary-500);
-  margin-bottom: var(--space-2);
-  line-height: 1;
-}
 
 .stat-label {
   font-size: var(--text-sm);
@@ -963,6 +937,39 @@ section {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Home page CTA Section */
+.home-cta-section {
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  margin-top: var(--space-8);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.home-cta-section .cta-stats {
+  position: relative;
+  z-index: 1;
+}
+
+.home-cta-section .stat-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
 }
 
 /* FAQ Section */
@@ -1270,8 +1277,8 @@ section {
     gap: var(--space-6);
   }
   
-  .stats-row {
-    grid-template-columns: repeat(2, 1fr);
+  .home-cta-section .cta-stats {
+    flex-direction: column;
     gap: var(--space-4);
   }
 
@@ -1337,9 +1344,6 @@ section {
     margin-bottom: var(--space-6);
   }
   
-  .stat-number {
-    font-size: var(--text-3xl);
-  }
 }
 
 /* Animation Classes */
