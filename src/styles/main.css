@@ -959,8 +959,8 @@ section {
 
 .stat-label {
   font-size: var(--text-sm);
-  color: var(--gray-600);
-  font-weight: 500;
+  color: var(--gray-800);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
