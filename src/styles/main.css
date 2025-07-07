@@ -4,44 +4,126 @@
 /* AOS Animation Library */
 @import 'aos/dist/aos.css';
 
-/* WPWeb Brand Colors */
+/* Modern Brand Colors - Inspired by WPEngine/Kinsta */
 :root {
-  --wpweb-primary: #0170B9;
-  --wpweb-secondary: #01BAEF;
-  --wpweb-accent: #20BF55;
-  --wpweb-orange: #FF930F;
-  --wpweb-dark: #4B4F58;
-  --wpweb-light: #F5F5F5;
-  --wpweb-white: #FFFFFF;
-  --wpweb-gray: #7A7A7A;
+  --primary-500: #4338CA;
+  --primary-600: #3730A3;
+  --primary-700: #312E81;
+  --secondary-500: #06B6D4;
+  --secondary-600: #0891B2;
+  --accent-500: #10B981;
+  --accent-600: #059669;
+  --orange-500: #F59E0B;
+  --orange-600: #D97706;
+  
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  
+  --white: #FFFFFF;
+  --black: #000000;
+  
+  /* Legacy color mapping for compatibility */
+  --wpweb-primary: var(--primary-500);
+  --wpweb-secondary: var(--secondary-500);
+  --wpweb-accent: var(--accent-500);
+  --wpweb-orange: var(--orange-500);
+  --wpweb-dark: var(--gray-800);
+  --wpweb-light: var(--gray-50);
+  --wpweb-white: var(--white);
+  --wpweb-gray: var(--gray-500);
+  
+  /* Typography Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 /* Page Specific Styles */
 body {
-  background-color: var(--wpweb-light);
-  font-family: 'Questrial', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-  color: var(--wpweb-dark);
+  background-color: var(--white);
+  font-family: 'Inter', 'Questrial', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+  color: var(--gray-900);
+  line-height: 1.6;
+  font-size: var(--text-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
-  font-weight: 600;
-  color: var(--wpweb-dark);
+  font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
 }
+
+h1 { font-size: var(--text-5xl); font-weight: 800; }
+h2 { font-size: var(--text-4xl); font-weight: 700; }
+h3 { font-size: var(--text-2xl); font-weight: 600; }
+h4 { font-size: var(--text-xl); font-weight: 600; }
+h5 { font-size: var(--text-lg); font-weight: 600; }
+h6 { font-size: var(--text-base); font-weight: 600; }
 
 /* Navbar Styles */
 .navbar {
-  background: linear-gradient(135deg, var(--wpweb-primary) 0%, var(--wpweb-secondary) 100%);
-  color: white;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-900);
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: var(--space-4) 0;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .nav-container {
@@ -49,15 +131,23 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-8);
 }
 
 .nav-logo .logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: white;
-  font-weight: 600;
-  font-size: 1.2rem;
+  color: var(--gray-900);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  transition: opacity 0.2s ease;
+}
+
+.nav-logo .logo-link:hover {
+  opacity: 0.8;
 }
 
 .logo-img {
@@ -76,34 +166,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
   text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
+  color: var(--gray-700);
+  transition: all 0.2s ease;
   position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+  font-size: var(--text-sm);
 }
 
 .nav-link:hover {
-  color: #ddd;
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-1px);
+  color: var(--primary-600);
+  background: var(--gray-50);
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--wpweb-accent);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-.nav-link:hover::after {
-  width: 80%;
-}
 
 .hamburger {
   display: none;
@@ -114,17 +190,18 @@ h1, h2, h3, h4, h5, h6 {
 .bar {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: var(--gray-700);
   margin: 3px 0;
   transition: 0.3s;
+  border-radius: var(--radius);
 }
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, var(--wpweb-primary) 0%, var(--wpweb-secondary) 100%);
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
   color: white;
   text-align: center;
-  padding: 5rem 1rem;
+  padding: var(--space-20) 0;
   position: relative;
   overflow: hidden;
 }
@@ -136,61 +213,79 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.05" points="0,1000 1000,0 1000,1000"/></svg>') no-repeat center center;
-  background-size: cover;
+  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-8);
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-family: 'Sarabun', sans-serif;
-  font-weight: 600;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--space-6);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  opacity: 0.95;
+  font-size: var(--text-xl);
+  opacity: 0.9;
   max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 auto var(--space-8);
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .hero-buttons .btn {
-  margin: 0.5rem;
-  padding: 0.8rem 2rem;
+  padding: var(--space-4) var(--space-8);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-xl);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--text-base);
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 140px;
+  justify-content: center;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--wpweb-accent) 0%, #17a2b8 100%);
-  color: white;
-  transform: translateY(0);
+  background: var(--white);
+  color: var(--primary-600);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-secondary {
-  background-color: var(--wpweb-white);
-  color: var(--wpweb-primary);
-  border: 2px solid var(--wpweb-white);
+  background-color: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #1ba347 0%, #138496 100%);
+  background: var(--gray-50);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(32, 191, 85, 0.3);
+  box-shadow: var(--shadow-xl);
 }
 
 .btn-secondary:hover {
-  background-color: var(--wpweb-primary);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
 }
 
@@ -536,78 +631,86 @@ main {
   gap: 1rem;
 }
 
+/* Section Spacing */
+section {
+  padding: var(--space-20) 0;
+}
+
 /* Pricing Section */
 .pricing-section {
-  background: white;
-  border-radius: 10px;
-  padding: 3rem 2rem;
-  margin: 2rem 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  background: var(--gray-50);
 }
 
 .pricing-section h2 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: var(--space-4);
 }
 
 .pricing-subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 3rem;
+  font-size: var(--text-lg);
+  color: var(--gray-600);
+  margin-bottom: var(--space-12);
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .pricing-card {
-  background: white;
-  border: 2px solid #e9ecef;
-  border-radius: 12px;
-  padding: 2rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
   position: relative;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  border-color: var(--wpweb-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-300);
 }
 
 .pricing-card.featured {
-  border-color: var(--wpweb-primary);
-  transform: scale(1.05);
-  background: linear-gradient(135deg, var(--wpweb-primary) 0%, var(--wpweb-secondary) 100%);
-  color: white;
+  border-color: var(--primary-500);
+  border-width: 2px;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
 }
 
-.pricing-card.featured .pricing-features li {
-  color: white;
+.pricing-card.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-500) 0%, var(--secondary-500) 100%);
 }
 
-.pricing-card.featured .pricing-features i {
-  color: #fff;
-}
 
 .popular-badge {
   position: absolute;
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--wpweb-accent);
+  background: var(--primary-500);
   color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-2xl);
+  font-size: var(--text-sm);
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(32, 191, 85, 0.3);
+  box-shadow: var(--shadow-lg);
 }
 
 .pricing-header h3 {
@@ -626,9 +729,9 @@ main {
 }
 
 .amount {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--wpweb-primary);
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  color: var(--primary-500);
 }
 
 .pricing-card.featured .amount {
@@ -714,69 +817,72 @@ main {
 
 /* Features Section */
 .features-section {
-  background: #f8f9fa;
-  border-radius: 10px;
-  padding: 3rem 2rem;
-  margin: 2rem 0;
-  text-align: center;
+  background: var(--white);
 }
 
 .features-section h2 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 3rem;
+  text-align: center;
+  margin-bottom: var(--space-12);
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .feature-item {
-  background: white;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
+  background: var(--white);
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
   text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
 }
 
 .feature-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-200);
 }
 
 .feature-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--wpweb-primary) 0%, var(--wpweb-secondary) 100%);
-  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--secondary-500) 100%);
+  border-radius: var(--radius-2xl);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
-  transition: transform 0.3s ease;
+  margin: 0 auto var(--space-6);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
 }
 
 .feature-item:hover .feature-icon {
-  transform: scale(1.1);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: var(--shadow-lg);
 }
 
 .feature-icon i {
-  font-size: 2rem;
+  font-size: var(--text-2xl);
   color: white;
 }
 
 .feature-item h3 {
-  font-size: 1.3rem;
-  color: #333;
-  margin-bottom: 1rem;
+  font-size: var(--text-xl);
+  color: var(--gray-900);
+  margin-bottom: var(--space-4);
+  font-weight: 600;
 }
 
 .feature-item p {
-  color: #666;
+  color: var(--gray-600);
   line-height: 1.6;
+  font-size: var(--text-base);
 }
 
 /* FAQ Section */

@@ -94,7 +94,22 @@ p {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
 }
 
 .container-fluid {
@@ -341,13 +356,31 @@ p {
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
+    padding: 0 1.5rem;
+  }
+  .container-wide {
+    max-width: 560px;
+    padding: 0 1.5rem;
+  }
+  .container-narrow {
+    max-width: 520px;
+    padding: 0 1.5rem;
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .container {
+    max-width: 750px;
+    padding: 0 2rem;
+  }
+  .container-wide {
+    max-width: 780px;
+    padding: 0 2rem;
+  }
+  .container-narrow {
     max-width: 720px;
+    padding: 0 2rem;
   }
   
   .grid-cols-md-1 {
@@ -370,7 +403,16 @@ p {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .container {
-    max-width: 960px;
+    max-width: 970px;
+    padding: 0 2rem;
+  }
+  .container-wide {
+    max-width: 1000px;
+    padding: 0 2rem;
+  }
+  .container-narrow {
+    max-width: 850px;
+    padding: 0 2rem;
   }
   
   .grid-cols-lg-1 {
@@ -393,13 +435,31 @@ p {
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 1170px;
+    padding: 0 2rem;
+  }
+  .container-wide {
+    max-width: 1350px;
+    padding: 0 2rem;
+  }
+  .container-narrow {
+    max-width: 900px;
+    padding: 0 2rem;
   }
 }
 
 /* Extra extra large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
   .container {
-    max-width: 1320px;
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+  .container-wide {
+    max-width: 1400px;
+    padding: 0 2rem;
+  }
+  .container-narrow {
+    max-width: 900px;
+    padding: 0 2rem;
   }
 }
