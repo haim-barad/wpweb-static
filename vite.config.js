@@ -9,6 +9,10 @@ export default defineConfig({
     minify: 'terser',
     cssMinify: true,
     rollupOptions: {
+      input: {
+        main: './src/index.html',
+        services: './src/services.html'
+      },
       output: {
         manualChunks: {
           vendor: ['aos', '@accessible/accordion']

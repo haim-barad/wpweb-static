@@ -1,0 +1,153 @@
+{
+  "timestamp": "2025-07-07T11:56:40.369Z",
+  "summary": {
+    "colorContrast": {
+      "total": 6,
+      "passed": 2
+    },
+    "breakpoints": {
+      "total": 4,
+      "passed": 1
+    },
+    "accessibility": {
+      "total": 12,
+      "passed": 10
+    }
+  },
+  "details": {
+    "colorContrast": [
+      {
+        "name": "Body text",
+        "ratio": "8.21",
+        "level": "AAA",
+        "passes": true
+      },
+      {
+        "name": "Primary button",
+        "ratio": "5.22",
+        "level": "AA",
+        "passes": true
+      },
+      {
+        "name": "Secondary button",
+        "ratio": "2.27",
+        "level": "FAIL",
+        "passes": false
+      },
+      {
+        "name": "Accent elements",
+        "ratio": "2.43",
+        "level": "FAIL",
+        "passes": false
+      },
+      {
+        "name": "Gray text",
+        "ratio": "4.29",
+        "level": "FAIL",
+        "passes": false
+      },
+      {
+        "name": "Orange elements",
+        "ratio": "2.23",
+        "level": "FAIL",
+        "passes": false
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "Large Desktop",
+        "width": 1200,
+        "found": false
+      },
+      {
+        "name": "Desktop",
+        "width": 992,
+        "found": false
+      },
+      {
+        "name": "Tablet Portrait",
+        "width": 768,
+        "found": true
+      },
+      {
+        "name": "Mobile",
+        "width": 480,
+        "found": false
+      }
+    ],
+    "accessibility": [
+      {
+        "file": "src/index.html",
+        "test": "Skip link",
+        "passes": true,
+        "description": "Skip to main content link present"
+      },
+      {
+        "file": "src/index.html",
+        "test": "ARIA labels",
+        "passes": true,
+        "description": "ARIA labels used for accessibility"
+      },
+      {
+        "file": "src/index.html",
+        "test": "Alt attributes",
+        "passes": true,
+        "description": "All images have alt attributes"
+      },
+      {
+        "file": "src/index.html",
+        "test": "Form labels",
+        "passes": false,
+        "description": "Form inputs have associated labels"
+      },
+      {
+        "file": "src/index.html",
+        "test": "Semantic HTML",
+        "passes": true,
+        "description": "Semantic HTML elements used"
+      },
+      {
+        "file": "src/index.html",
+        "test": "Heading hierarchy",
+        "passes": true,
+        "description": "Proper heading hierarchy (one h1 per page)"
+      },
+      {
+        "file": "src/services.html",
+        "test": "Skip link",
+        "passes": true,
+        "description": "Skip to main content link present"
+      },
+      {
+        "file": "src/services.html",
+        "test": "ARIA labels",
+        "passes": true,
+        "description": "ARIA labels used for accessibility"
+      },
+      {
+        "file": "src/services.html",
+        "test": "Alt attributes",
+        "passes": true,
+        "description": "All images have alt attributes"
+      },
+      {
+        "file": "src/services.html",
+        "test": "Form labels",
+        "passes": false,
+        "description": "Form inputs have associated labels"
+      },
+      {
+        "file": "src/services.html",
+        "test": "Semantic HTML",
+        "passes": true,
+        "description": "Semantic HTML elements used"
+      },
+      {
+        "file": "src/services.html",
+        "test": "Heading hierarchy",
+        "passes": true,
+        "description": "Proper heading hierarchy (one h1 per page)"
+      }
+    ]
+  }
+}
