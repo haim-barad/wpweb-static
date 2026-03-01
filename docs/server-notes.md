@@ -84,6 +84,12 @@
 - `pm.max_requests`: 500 → **150** (workers recycle 3× faster, limits RSS balloon from ~700MB to ~180MB avg)
 - Graceful reload via `systemctl reload php8.4-fpm`
 
+### PHP memory limits
+- `WP_MEMORY_LIMIT` (wp-config.php): `3072M` → **`256M`** (frontend requests)
+- `WP_MAX_MEMORY_LIMIT` (wp-config.php): not set → **`512M`** (admin/editor operations)
+- `php_admin_value[memory_limit]` (pool.d/www.conf): commented out → **`512M`** (hard cap — WordPress cannot exceed this via `ini_set`)
+- PHP-FPM reloaded after pool config change
+
 ### wp_options autoload cleanup (`aardvark` DB)
 - Deleted 10 orphaned autoloaded options:
   - `et_divi` (51KB) — Divi theme settings, theme not installed
@@ -108,5 +114,5 @@
 - Still ~31 active plugins — some possibly unused (see plugin audit in conversation)
 - No MySQL slow query log enabled
 - next3-offload cache will gradually regenerate (~50 MB) as pages are visited — can be re-cleared periodically
-- `WP_MEMORY_LIMIT` in wp-config.php is set to `3072M` — should be lowered to `256M` with `WP_MAX_MEMORY_LIMIT = 512M`; pool.d `php_admin_value[memory_limit]` is commented out and could be uncommented at 512M as a hard cap
+- ~~`WP_MEMORY_LIMIT` fix~~ done (256M + 512M max + hard cap in pool.d)
 - MySQL `innodb_buffer_pool_instances = 1` + restart could reduce pool further to ~1024MB if needed
