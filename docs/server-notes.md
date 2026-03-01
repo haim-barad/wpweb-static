@@ -33,6 +33,7 @@
 - `pm.max_children`: 12 → **20**
 - `pm.start_servers`: 4 → **6**
 - `pm.max_spare_servers`: 6 → **10**
+- `pm.max_requests`: left at **500**
 
 ### OPcache (`/etc/php/8.4/fpm/conf.d/10-opcache.ini`)
 - `opcache.jit`: `tracing` → **`function`** (tracing mode causes SIGSEGV with php-redis extension on PHP 8.4)
@@ -51,14 +52,61 @@
 ### MySQL (`/etc/mysql/mysql.conf.d/mysqld.cnf`)
 - Added `tmp_table_size = 64M` (was 16M default)
 - Added `max_heap_table_size = 64M` (was 16M default)
+- Added `innodb_buffer_pool_size = 2400M` (not yet applied — MySQL not restarted)
 
 ### WP Rocket
 - RUCSS (`remove_unused_css`) was already disabled (set to 0)
 - 27K+ failed RUCSS action scheduler entries were cleaned
 
+## Changes Made (2026-03-01)
+
+### Caching — WP Rocket `cache_reject_ua` fix
+- WP Rocket had `(.*)` in `cache_reject_ua` (DB option `wp_rocket_settings`) — matched every user agent, preventing caching for all visitors
+- Removed `(.*)` via WP-CLI; remaining entries: `(.*)Googlebot(.*)`, `Googlebot(.*)`
+- **Architecture note**: nginx uses FastCGI cache (`/var/cache/nginx/aardvarkisrael_fastcgi/`) — not WP Rocket's file cache. WP Rocket's `advanced-cache.php` drop-in was sending `Cache-Control: no-cache` for all UAs (due to the wildcard), which nginx respects since `fastcgi_ignore_headers` only ignores `Set-Cookie`
+- Flushed nginx FastCGI cache after fix so stale no-cache responses are replaced
+- **Known limitation**: most bot traffic (AhrefsBot, SemrushBot) uses URLs with `?doing_wp_cron=`, `?order=`, search params — these carry query strings so nginx's `$skip_cache` logic always bypasses cache for them
+
+### Swap
+- Created 4GB swap file: `fallocate -l 4G /swapfile && mkswap && swapon`
+- Added `/swapfile none swap sw 0 0` to `/etc/fstab` — persistent across reboots
+- Server had 0 swap before; OOM kills were instant with no safety margin
+
+### MySQL (`/etc/mysql/mysql.conf.d/mysqld.cnf`)
+- `innodb_buffer_pool_size`: live value was **3072MB** (Feb config change to 2400M was never applied — MySQL hadn't been restarted)
+- Applied live via `SET GLOBAL innodb_buffer_pool_size = 1258291200` → MySQL rounded to **2048MB** (InnoDB requires multiples of chunk_size × instances = 128MB × 8 = 1024MB)
+- Config updated to `2048M` to match live value
+- To reach ~1024MB would require changing `innodb_buffer_pool_instances = 1` + MySQL restart (brief downtime)
+
+### PHP-FPM (`/etc/php/8.4/fpm/pool.d/www.conf`)
+- `pm.max_children`: 20 → **12**
+- `pm.max_spare_servers`: 10 → **8**
+- `pm.max_requests`: 500 → **150** (workers recycle 3× faster, limits RSS balloon from ~700MB to ~180MB avg)
+- Graceful reload via `systemctl reload php8.4-fpm`
+
+### wp_options autoload cleanup (`aardvark` DB)
+- Deleted 10 orphaned autoloaded options:
+  - `et_divi` (51KB) — Divi theme settings, theme not installed
+  - `wp-short-pixel-prioritySkip` (29KB) — ShortPixel plugin not installed
+  - `yst_ga`, `yst_ga_api`, `yst_ga_bounceRate`, `yst_ga_last_wp_run`, `yst_ga_sessions`, `yst_ga_source`, `yst_ga_top_countries`, `yst_ga_top_pageviews` (47KB total) — Yoast GA plugin removed Feb 2026
+- Disabled autoload (data kept) for `image-map-pro-wordpress-admin-options` (5.7KB) — plugin inactive
+- Autoload total: **0.67MB → 0.54MB** (961 options)
+- Flushed Redis object cache after cleanup
+
+### Memory state after all changes
+| Component | Before | After |
+|---|---|---|
+| PHP-FPM total RSS | ~7.9GB (19 workers × 417MB avg) | ~3.4GB (19 workers × 180MB avg) |
+| MySQL buffer pool (live) | 3.1GB | 2.0GB |
+| Swap | 0 | 4GB |
+| RAM available | ~11GB | ~12GB |
+- Worst-case ceiling: 12 × ~700MB PHP + 2GB MySQL + 130MB Redis ≈ **10.5GB** (leaves 5GB+ before swap)
+
 ## Remaining Issues / Future Work
 - `wp_postmeta` now 163 MB — `_elementor_data` (29 MB) is all legitimate published/draft content
-- `wp_options` autoload: ~0.69 MB (acceptable)
+- `wp_options` autoload: ~0.54 MB (acceptable)
 - Still ~31 active plugins — some possibly unused (see plugin audit in conversation)
 - No MySQL slow query log enabled
 - next3-offload cache will gradually regenerate (~50 MB) as pages are visited — can be re-cleared periodically
+- `WP_MEMORY_LIMIT` in wp-config.php is set to `3072M` — should be lowered to `256M` with `WP_MAX_MEMORY_LIMIT = 512M`; pool.d `php_admin_value[memory_limit]` is commented out and could be uncommented at 512M as a hard cap
+- MySQL `innodb_buffer_pool_instances = 1` + restart could reduce pool further to ~1024MB if needed
