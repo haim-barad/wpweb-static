@@ -30,7 +30,7 @@ Research from Georgia Tech and Princeton shows GEO-optimized content receives 30
 
 ## Pricing
 
-- **Starter** — $99/month: Hosting, security, daily backups, performance monitoring, 3-hour response time
+- **Basic** — $99/month: Hosting, security, daily backups, performance monitoring, 3-hour response time
 - **Pro** — $299/month: Everything in Starter + SEO & GEO monitoring, priority support, monthly reports
 - **Premium** — $1,199/month: Everything in Pro + GEO optimization audits, white-glove management, dedicated account manager
 
