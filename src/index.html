@@ -3,81 +3,233 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WPWeb - WordPress Management & Maintenance</title>
-    <meta name="theme-color" content="#2563eb" />
-    <meta name="description" content="Professional WordPress management, maintenance, and support services that keep your website running smoothly, secure, and optimized." />
-    <meta name="keywords" content="WordPress maintenance, WordPress security, WordPress hosting, website management, WordPress support" />
+    <title>WPWeb — WordPress Management, Maintenance & GEO Optimization</title>
+    <meta name="theme-color" content="#E9A020" />
+    <meta name="description" content="WPWeb provides expert WordPress management, security monitoring, performance optimization, and AI visibility (GEO) services. Flat-fee plans from $99/month. 99.9% uptime guarantee." />
+    <meta name="keywords" content="WordPress maintenance, WordPress management, WordPress security, GEO optimization, AI visibility, website management, WordPress support" />
     <meta name="author" content="WPWeb" />
-    <meta property="og:title" content="WPWeb - WordPress Management & Maintenance" />
-    <meta property="og:description" content="Professional WordPress management, maintenance, and support services that keep your website running smoothly." />
+    <meta property="og:title" content="WPWeb — WordPress Management & GEO Optimization" />
+    <meta property="og:description" content="Expert WordPress management, security, performance, and AI search visibility. Flat-fee plans from $99/month." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wpweb.org" />
+    <meta property="og:image" content="https://wpweb.org/icons/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="WPWeb - WordPress Management & Maintenance" />
-    <meta name="twitter:description" content="Professional WordPress management, maintenance, and support services." />
+    <meta name="twitter:title" content="WPWeb — WordPress Management & GEO Optimization" />
+    <meta name="twitter:description" content="Expert WordPress management, security, performance, and AI search visibility. Plans from $99/month." />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="canonical" href="https://wpweb.org" />
+    <link rel="canonical" href="https://wpweb.org/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&family=Questrial&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&family=Questrial&display=swap" /></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://wpweb.org/#organization",
+          "name": "WPWeb",
+          "url": "https://wpweb.org",
+          "logo": "https://wpweb.org/icons/icon-192.png",
+          "description": "Professional WordPress management, maintenance, security monitoring, performance optimization, and AI search visibility (GEO) services.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "url": "https://wpweb.org/#contact"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://wpweb.org/#website",
+          "name": "WPWeb",
+          "url": "https://wpweb.org",
+          "publisher": { "@id": "https://wpweb.org/#organization" }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://wpweb.org/#service",
+          "name": "WPWeb WordPress Management",
+          "url": "https://wpweb.org",
+          "description": "Managed WordPress services including security monitoring, daily backups, performance optimization, plugin updates, and GEO/AI visibility optimization.",
+          "priceRange": "$99–$1199/month",
+          "provider": { "@id": "https://wpweb.org/#organization" },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "WordPress Management Plans",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Basic Plan",
+                "price": "99",
+                "priceCurrency": "USD",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" },
+                "description": "Daily backups, core updates, security monitoring, performance optimization, email support."
+              },
+              {
+                "@type": "Offer",
+                "name": "Pro Plan",
+                "price": "299",
+                "priceCurrency": "USD",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" },
+                "description": "Everything in Basic plus plugin updates, content updates, SEO monitoring, analytics reports, priority support, ecommerce support."
+              },
+              {
+                "@type": "Offer",
+                "name": "Premium Plan",
+                "price": "1199",
+                "priceCurrency": "USD",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" },
+                "description": "Everything in Pro plus custom development, advanced security, performance audits, white-label reports, dedicated manager, 24/7 phone support."
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://wpweb.org/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What does WordPress maintenance include?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our WordPress maintenance includes daily backups, security monitoring, core updates, plugin updates, performance optimization, uptime monitoring, and regular security scans to keep your site secure and running smoothly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you support ecommerce websites?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we support ecommerce websites. This requires either the Pro or Premium plan due to the added complexity and higher uptime requirements of ecommerce sites."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How quickly do you respond to support requests?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Basic plan users receive email support within 24 hours. Pro plan users get priority support with faster response times. Premium plan users have 24/7 phone support and a dedicated account manager."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if my site gets hacked?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We provide malware removal and site recovery services. With daily backups and security monitoring, we can quickly restore your site to a clean state and implement additional security measures to prevent future attacks."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is GEO optimization and why does it matter?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GEO (Generative Engine Optimization) is the practice of optimizing your website so AI systems like ChatGPT, Claude, and Perplexity can discover, understand, and recommend your content. As AI-powered search grows, GEO optimization is becoming as important as traditional SEO."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I upgrade or downgrade my plan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect at your next billing cycle, and we'll help you transition smoothly between plans."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <!-- Accessibility Skip Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <!-- Header with Navigation -->
     <header class="site-header">
-      <nav class="navbar">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
           <div class="nav-logo">
-            <a href="#" class="logo-link">
-              <img src="https://wpweb.org/wp-content/uploads/2022/04/cropped-cropped-wpweb-logo-7631-76x75-1.png" alt="WPWeb Logo" class="logo-img" width="40" height="40" loading="eager" />
-              <span>WPWeb</span>
+            <a href="/" class="logo-link" aria-label="WPWeb home">
+              <svg viewBox="0 0 44 44" width="36" height="36" aria-hidden="true" focusable="false">
+                <rect width="44" height="44" rx="10" fill="#E9A020"/>
+                <polyline points="8,14 14,30 22,20 30,30 36,14"
+                  fill="none" stroke="white" stroke-width="3.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="logo-text">WPWeb</span>
             </a>
           </div>
-          
+
           <!-- Desktop Navigation -->
-          <ul class="nav-menu">
-            <li class="nav-item">
-              <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#pricing" class="nav-link">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a href="#features" class="nav-link">Features</a>
-            </li>
-            <li class="nav-item">
-              <a href="services.html" class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-              <a href="#faq" class="nav-link">FAQ</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link">Contact</a>
-            </li>
+          <ul class="nav-menu" role="menubar">
+            <li class="nav-item" role="none"><a href="/" class="nav-link" role="menuitem">Home</a></li>
+            <li class="nav-item" role="none"><a href="#services" class="nav-link" role="menuitem">Services</a></li>
+            <li class="nav-item" role="none"><a href="#pricing" class="nav-link" role="menuitem">Pricing</a></li>
+            <li class="nav-item" role="none"><a href="#faq" class="nav-link" role="menuitem">FAQ</a></li>
+            <li class="nav-item" role="none"><a href="#contact" class="nav-link nav-link-cta" role="menuitem">Get Started</a></li>
           </ul>
-          
-          <!-- Mobile Hamburger Menu -->
-          <div class="hamburger" id="hamburger">
+
+          <!-- Mobile Hamburger -->
+          <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu-mobile" aria-label="Toggle navigation menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
-          </div>
+          </button>
         </div>
       </nav>
-      
+
       <!-- Hero Section -->
       <div class="hero-section">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
         <div class="hero-content">
-          <h1 data-aos="fade-down">Your WordPress. Our Expertise.</h1>
+          <div class="hero-badge" data-aos="fade-down" data-aos-delay="0">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <circle cx="7" cy="7" r="3" fill="#E9A020"/>
+              <circle cx="7" cy="7" r="6" stroke="#E9A020" stroke-width="1" fill="none" opacity="0.4"/>
+            </svg>
+            WordPress Experts · GEO & AI Visibility Specialists
+          </div>
+          <h1 data-aos="fade-up" data-aos-delay="100">
+            Your WordPress.<br>
+            <em>Our Expertise.</em>
+          </h1>
           <p data-aos="fade-up" data-aos-delay="200">
-            Professional WordPress management, maintenance, and support services that keep your website running smoothly.
+            Professional WordPress management, security, and AI search visibility —
+            so you focus on growing your business while we keep your site fast, secure, and discoverable.
           </p>
-          <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+          <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
             <a href="#contact" class="btn btn-primary">Get Started Today</a>
-            <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+            <a href="#pricing" class="btn btn-ghost">View Pricing</a>
+          </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+          <div class="hero-stat">
+            <span class="hero-stat-number">500+</span>
+            <span class="hero-stat-label">Sites Managed</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">99.9%</span>
+            <span class="hero-stat-label">Uptime Guarantee</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">24/7</span>
+            <span class="hero-stat-label">Monitoring</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">5-Star</span>
+            <span class="hero-stat-label">Service Rating</span>
           </div>
         </div>
       </div>
@@ -85,331 +237,386 @@
 
     <!-- Main Content -->
     <main class="main-content" id="main-content">
-      <div class="container">
-        <!-- Pricing Section -->
-        <section class="pricing-section" id="pricing">
-          <h2 data-aos="fade-up">Choose Your Plan</h2>
-          <p class="pricing-subtitle" data-aos="fade-up" data-aos-delay="100">
-            WordPress management solutions for businesses of all sizes
-          </p>
+
+      <!-- Services Section -->
+      <section class="services-section" id="services" aria-labelledby="services-heading">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-label">What We Do</span>
+            <h2 id="services-heading">Everything Your WordPress Site Needs</h2>
+            <p class="section-subtitle">From daily security scans to AI-powered search visibility, we cover every dimension of WordPress excellence.</p>
+          </div>
+
+          <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="service-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <h3>Security Monitoring</h3>
+              <p>24/7 malware scanning, firewall protection, and instant threat response. If your site gets hacked, we restore it — at no extra charge.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+              <div class="service-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                </svg>
+              </div>
+              <h3>Managed Updates</h3>
+              <p>WordPress core, themes, and plugins updated automatically and safely — tested before deployment so nothing ever breaks.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="service-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <h3>Daily Backups</h3>
+              <p>Automated daily backups stored offsite. Restore to any point in time in minutes. Your data is always protected.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+              <div class="service-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+              <h3>Performance Optimization</h3>
+              <p>Caching, CDN configuration, image optimization, and Core Web Vitals tuning. Fast sites rank better and convert more.</p>
+            </div>
+
+            <div class="service-card service-card-featured" data-aos="fade-up" data-aos-delay="300">
+              <div class="service-card-new-badge" aria-label="New service">GEO</div>
+              <div class="service-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                </svg>
+              </div>
+              <h3>AI & GEO Visibility</h3>
+              <p>ChatGPT, Claude, and Perplexity now drive discovery. We implement schema markup, llms.txt, and content architecture that makes your site citable and recommendable by AI.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+              <div class="service-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <h3>Expert Support</h3>
+              <p>Real WordPress experts — not bots, not scripts. Email, priority, and 24/7 phone options. Monthly reports keep you informed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GEO Deep-Dive Section -->
+      <section class="geo-section" id="geo" aria-labelledby="geo-heading">
+        <div class="container">
+          <div class="geo-inner">
+            <div class="geo-text" data-aos="fade-right">
+              <span class="section-label section-label-amber">New Service</span>
+              <h2 id="geo-heading">Your WordPress Site,<br>Discoverable by AI</h2>
+              <p>Traditional SEO gets you found on Google. <strong>GEO (Generative Engine Optimization)</strong> gets you cited by ChatGPT, Claude, Perplexity, and Google AI Overviews — the new front door to the web.</p>
+              <p>We audit your WordPress site against AI discovery criteria, implement structured data (Schema.org), create <code>llms.txt</code> manifests, and optimize your content so AI systems understand, trust, and recommend you.</p>
+              <div class="geo-metrics">
+                <div class="geo-metric">
+                  <span class="geo-metric-number">30–115%</span>
+                  <span class="geo-metric-label">increase in AI visibility after GEO remediation <em>(Georgia Tech / Princeton study, 2024)</em></span>
+                </div>
+              </div>
+              <a href="#contact" class="btn btn-primary">Ask About GEO Optimization</a>
+            </div>
+            <div class="geo-checklist" data-aos="fade-left" data-aos-delay="100">
+              <div class="geo-checklist-label">What we implement</div>
+              <ul class="geo-list" aria-label="GEO optimization services">
+                <li>
+                  <span class="geo-check" aria-hidden="true">✓</span>
+                  <div><strong>Schema.org structured data</strong><br><span>Organization, FAQPage, HowTo, SoftwareApplication — the machine-readable signals AI models use for entity recognition</span></div>
+                </li>
+                <li>
+                  <span class="geo-check" aria-hidden="true">✓</span>
+                  <div><strong>llms.txt creation</strong><br><span>The emerging standard that helps AI crawlers understand your site's content hierarchy</span></div>
+                </li>
+                <li>
+                  <span class="geo-check" aria-hidden="true">✓</span>
+                  <div><strong>AI crawler access</strong><br><span>Audit robots.txt to ensure GPTBot, ClaudeBot, and PerplexityBot can index your content</span></div>
+                </li>
+                <li>
+                  <span class="geo-check" aria-hidden="true">✓</span>
+                  <div><strong>Content citability</strong><br><span>Rewrite key passages to be self-contained, specific, and statistically dense — the content AI systems actually quote</span></div>
+                </li>
+                <li>
+                  <span class="geo-check" aria-hidden="true">✓</span>
+                  <div><strong>E-E-A-T signals</strong><br><span>Author credentials, sameAs entity linking, and trust infrastructure that AI models use to evaluate authority</span></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section class="pricing-section" id="pricing" aria-labelledby="pricing-heading">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-label">Plans</span>
+            <h2 id="pricing-heading">Straightforward Pricing</h2>
+            <p class="section-subtitle">No hidden fees. No surprise invoices. One flat monthly rate covers everything.</p>
+          </div>
+
           <div class="pricing-grid">
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
               <div class="pricing-header">
                 <h3>Basic</h3>
                 <div class="price">
                   <span class="currency">$</span>
                   <span class="amount">99</span>
-                  <span class="period">/month</span>
+                  <span class="period">/mo</span>
                 </div>
-                <p class="plan-description">$99 Setup Fee + High-Performance Hosting</p>
+                <p class="plan-note">$99 setup fee + high-performance hosting</p>
               </div>
-              <ul class="pricing-features">
-                <li><i class="fas fa-check"></i> Daily Backups</li>
-                <li><i class="fas fa-check"></i> Core Updates</li>
-                <li><i class="fas fa-check"></i> Security Monitoring</li>
-                <li><i class="fas fa-check"></i> Performance Optimization</li>
-                <li><i class="fas fa-check"></i> Email Support</li>
+              <ul class="pricing-features" aria-label="Basic plan features">
+                <li><span class="check-icon" aria-hidden="true">✓</span> Daily Backups</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Core Updates</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Security Monitoring</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Performance Optimization</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Email Support (24h)</li>
               </ul>
               <a href="#contact" class="btn btn-outline">Get Started</a>
             </div>
-            
-            <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="300">
-              <div class="popular-badge">Most Popular</div>
+
+            <div class="pricing-card pricing-card-featured" data-aos="fade-up" data-aos-delay="200">
+              <div class="popular-badge" aria-label="Most popular plan">Most Popular</div>
               <div class="pricing-header">
                 <h3>Pro</h3>
                 <div class="price">
                   <span class="currency">$</span>
                   <span class="amount">299</span>
-                  <span class="period">/month</span>
+                  <span class="period">/mo</span>
                 </div>
-                <p class="plan-description">Everything in Basic plus:</p>
+                <p class="plan-note">Everything in Basic, plus:</p>
               </div>
-              <ul class="pricing-features">
-                <li><i class="fas fa-check"></i> Plugin Updates</li>
-                <li><i class="fas fa-check"></i> Content Updates</li>
-                <li><i class="fas fa-check"></i> SEO Monitoring</li>
-                <li><i class="fas fa-check"></i> Analytics Reports</li>
-                <li><i class="fas fa-check"></i> Priority Support</li>
-                <li><i class="fas fa-check"></i> Ecommerce Support</li>
+              <ul class="pricing-features" aria-label="Pro plan features">
+                <li><span class="check-icon" aria-hidden="true">✓</span> Plugin Updates</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Content Updates</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> SEO & GEO Monitoring</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Analytics Reports</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Priority Support</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Ecommerce Support</li>
               </ul>
               <a href="#contact" class="btn btn-primary">Get Started</a>
             </div>
-            
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
               <div class="pricing-header">
                 <h3>Premium</h3>
                 <div class="price">
                   <span class="currency">$</span>
                   <span class="amount">1199</span>
-                  <span class="period">/month</span>
+                  <span class="period">/mo</span>
                 </div>
-                <p class="plan-description">Everything in Pro plus:</p>
+                <p class="plan-note">Everything in Pro, plus:</p>
               </div>
-              <ul class="pricing-features">
-                <li><i class="fas fa-check"></i> Custom Development</li>
-                <li><i class="fas fa-check"></i> Advanced Security</li>
-                <li><i class="fas fa-check"></i> Performance Audits</li>
-                <li><i class="fas fa-check"></i> White-Label Reports</li>
-                <li><i class="fas fa-check"></i> Dedicated Manager</li>
-                <li><i class="fas fa-check"></i> 24/7 Phone Support</li>
+              <ul class="pricing-features" aria-label="Premium plan features">
+                <li><span class="check-icon" aria-hidden="true">✓</span> Custom Development</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Advanced Security</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> GEO Optimization Audits</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> White-Label Reports</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Dedicated Manager</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> 24/7 Phone Support</li>
               </ul>
               <a href="#contact" class="btn btn-outline">Get Started</a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Features Section -->
-        <section class="features-section" id="features">
-          <h2 data-aos="fade-up">Why Choose WPWeb</h2>
-          <div class="features-grid">
-            <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-              <div class="feature-icon">
-                <i class="fas fa-shield-alt"></i>
-              </div>
-              <h3>Security First</h3>
-              <p>Advanced security monitoring and malware protection to keep your site safe</p>
-            </div>
-            <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="feature-icon">
-                <i class="fas fa-cloud-upload-alt"></i>
-              </div>
-              <h3>Daily Backups</h3>
-              <p>Automated daily backups ensure your data is always protected and recoverable</p>
-            </div>
-            <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-              <div class="feature-icon">
-                <i class="fas fa-sync-alt"></i>
-              </div>
-              <h3>Auto Updates</h3>
-              <p>WordPress core, themes, and plugins updated automatically and safely</p>
-            </div>
-            <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-              <div class="feature-icon">
-                <i class="fas fa-tachometer-alt"></i>
-              </div>
-              <h3>Performance Optimization</h3>
-              <p>Speed optimization and monitoring to ensure your site loads lightning fast</p>
-            </div>
-            <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
-              <div class="feature-icon">
-                <i class="fas fa-headset"></i>
-              </div>
-              <h3>Expert Support</h3>
-              <p>Dedicated WordPress experts available to help with any issues or questions</p>
-            </div>
-            <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
-              <div class="feature-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <h3>Monthly Reports</h3>
-              <p>Detailed monthly reports on site performance, security, and maintenance activities</p>
-            </div>
+      <!-- Testimonials Section -->
+      <section class="testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-label">Client Stories</span>
+            <h2 id="testimonials-heading">Results That Speak for Themselves</h2>
           </div>
-        </section>
 
-        <!-- Success Stories Section -->
-        <section class="success-stories-section" id="success-stories">
-          <div class="container">
-            <h2 data-aos="fade-up">Success Stories from Happy Clients</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-              See how WPWeb has helped businesses focus on growth while we handle their WordPress worries
-            </p>
-            
-            <div class="success-grid">
-              <div class="success-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="success-image">
-                  <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop&crop=faces&auto=format&q=80" 
-                       alt="Happy business team collaborating" 
-                       loading="lazy"
-                       width="600" 
-                       height="400" />
-                </div>
-                <div class="success-content">
-                  <h3>Focus on Business Growth</h3>
-                  <p>"Since partnering with WPWeb, our team can focus entirely on serving our clients instead of worrying about website maintenance. Our site runs flawlessly, and we've seen zero downtime in over a year."</p>
-                  <div class="success-author">
-                    <strong>Sarah Johnson</strong>
-                    <span>CEO, Digital Marketing Agency</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="success-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="success-image">
-                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop&crop=faces&auto=format&q=80" 
-                       alt="Professional woman working confidently on laptop" 
-                       loading="lazy"
-                       width="600" 
-                       height="400" />
-                </div>
-                <div class="success-content">
-                  <h3>Peace of Mind</h3>
-                  <p>"No more 3 AM panic calls about website issues! WPWeb's proactive monitoring and maintenance means I sleep soundly knowing my online store is secure and performing optimally."</p>
-                  <div class="success-author">
-                    <strong>Michael Chen</strong>
-                    <span>Owner, E-commerce Business</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="success-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="success-image">
-                  <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop&crop=faces&auto=format&q=80" 
-                       alt="Diverse business team celebrating success" 
-                       loading="lazy"
-                       width="600" 
-                       height="400" />
-                </div>
-                <div class="success-content">
-                  <h3>Professional Excellence</h3>
-                  <p>"The WPWeb team's expertise is unmatched. They've optimized our site's performance, enhanced security, and provided insights that have improved our user experience significantly."</p>
-                  <div class="success-author">
-                    <strong>Amanda Rodriguez</strong>
-                    <span>Marketing Director, Tech Startup</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="home-cta-section">
-              <div class="cta-stats" data-aos="fade-up" data-aos-delay="500">
-              <div class="stat">
-                <span class="stat-number">500+</span>
-                <span class="stat-label">Happy Clients</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">99.9%</span>
-                <span class="stat-label">Uptime Guarantee</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">24/7</span>
-                <span class="stat-label">Monitoring</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">5-Star</span>
-                <span class="stat-label">Service Rating</span>
-              </div>
-              </div>
-            </div>
+          <div class="testimonials-grid">
+            <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+              <p>"Since partnering with WPWeb, our team focuses entirely on serving clients instead of worrying about website maintenance. Zero downtime in over a year."</p>
+              <footer>
+                <strong>Sarah Johnson</strong>
+                <span>CEO, Digital Marketing Agency</span>
+              </footer>
+            </blockquote>
+
+            <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+              <p>"No more 3 AM panic calls about website issues. WPWeb's proactive monitoring means I sleep soundly knowing my online store is secure and performing optimally."</p>
+              <footer>
+                <strong>Michael Chen</strong>
+                <span>Owner, E-commerce Business</span>
+              </footer>
+            </blockquote>
+
+            <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+              <p>"The WPWeb team's expertise is unmatched. They optimized our performance, enhanced security, and their GEO work has us appearing in AI search results we never expected."</p>
+              <footer>
+                <strong>Amanda Rodriguez</strong>
+                <span>Marketing Director, Tech Startup</span>
+              </footer>
+            </blockquote>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- FAQ Section -->
-        <section class="faq-section" id="faq">
-          <h2 data-aos="fade-up">Frequently Asked Questions</h2>
-          <div class="faq-container">
-            <details class="faq-item" data-aos="fade-up" data-aos-delay="100" role="group" aria-labelledby="faq-1">
-              <summary class="faq-question" id="faq-1" aria-expanded="false" role="button">
+      <!-- FAQ Section -->
+      <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <span class="section-label">FAQ</span>
+            <h2 id="faq-heading">Frequently Asked Questions</h2>
+          </div>
+
+          <div class="faq-container" data-aos="fade-up" data-aos-delay="100">
+            <details class="faq-item">
+              <summary class="faq-question">
                 <span>What does WordPress maintenance include?</span>
-                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
               </summary>
               <div class="faq-answer">
                 <p>Our WordPress maintenance includes daily backups, security monitoring, core updates, plugin updates, performance optimization, uptime monitoring, and regular security scans to keep your site secure and running smoothly.</p>
               </div>
             </details>
-            
-            <details class="faq-item" data-aos="fade-up" data-aos-delay="200" role="group" aria-labelledby="faq-2">
-              <summary class="faq-question" id="faq-2" aria-expanded="false" role="button">
+
+            <details class="faq-item">
+              <summary class="faq-question">
                 <span>Do you support ecommerce websites?</span>
-                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
               </summary>
               <div class="faq-answer">
-                <p>Yes, we support ecommerce websites and this requires either the Pro or Premium plan. In order to keep your site up 100% of the time and not miss any sales, you need the higher levels of support required for the added complexity of ecommerce websites.</p>
+                <p>Yes, we support ecommerce websites. This requires either the Pro or Premium plan due to the added complexity and higher uptime requirements of ecommerce sites running WooCommerce or similar.</p>
               </div>
             </details>
-            
-            <details class="faq-item" data-aos="fade-up" data-aos-delay="300" role="group" aria-labelledby="faq-3">
-              <summary class="faq-question" id="faq-3" aria-expanded="false" role="button">
+
+            <details class="faq-item">
+              <summary class="faq-question">
                 <span>How quickly do you respond to support requests?</span>
-                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
               </summary>
               <div class="faq-answer">
-                <p>Basic plan users receive email support within 24 hours. Pro plan users get priority support with faster response times. Premium plan users have access to 24/7 phone support and dedicated account management.</p>
+                <p>Basic plan users receive email support within 24 hours. Pro plan users get priority support with faster response times. Premium plan users have 24/7 phone support and a dedicated account manager.</p>
               </div>
             </details>
-            
-            <details class="faq-item" data-aos="fade-up" data-aos-delay="400" role="group" aria-labelledby="faq-4">
-              <summary class="faq-question" id="faq-4" aria-expanded="false" role="button">
+
+            <details class="faq-item">
+              <summary class="faq-question">
                 <span>What happens if my site gets hacked?</span>
-                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
               </summary>
               <div class="faq-answer">
                 <p>We provide malware removal and site recovery services. With our daily backups and security monitoring, we can quickly restore your site to a clean state and implement additional security measures to prevent future attacks.</p>
               </div>
             </details>
-            
-            <details class="faq-item" data-aos="fade-up" data-aos-delay="500" role="group" aria-labelledby="faq-5">
-              <summary class="faq-question" id="faq-5" aria-expanded="false" role="button">
-                <span>Can I upgrade or downgrade my plan?</span>
-                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What is GEO optimization and why does it matter?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
               </summary>
               <div class="faq-answer">
-                <p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect at your next billing cycle, and we'll help you transition smoothly between plans to ensure your site continues running without interruption.</p>
+                <p>GEO (Generative Engine Optimization) is the practice of optimizing your website so AI systems like ChatGPT, Claude, and Perplexity can discover, understand, and cite your content. Research shows sites with proper GEO optimization see 30–115% more visibility in AI-generated responses. As AI-powered search grows, GEO optimization is becoming as important as traditional SEO.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Can I upgrade or downgrade my plan?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect at your next billing cycle, and we'll help you transition smoothly to ensure your site keeps running without interruption.</p>
               </div>
             </details>
           </div>
-        </section>
+        </div>
+      </section>
 
-    <!-- Contact Section -->    
-    <div id="contact-form-container-home"></div>    
-      </div>
+      <!-- Contact Section -->
+      <div id="contact-form-container-home"></div>
+
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-      <div class="footer-content">
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
         <div class="container">
           <div class="footer-grid">
-            <!-- Company Info -->
-            <div class="footer-section">
-              <h3>WPWeb</h3>
-              <p>Professional WordPress management and maintenance services to keep your website secure, fast, and up-to-date.</p>
+            <div class="footer-brand">
+              <a href="/" class="logo-link" aria-label="WPWeb home">
+                <svg viewBox="0 0 44 44" width="32" height="32" aria-hidden="true">
+                  <rect width="44" height="44" rx="10" fill="#E9A020"/>
+                  <polyline points="8,14 14,30 22,20 30,30 36,14"
+                    fill="none" stroke="white" stroke-width="3.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="logo-text">WPWeb</span>
+              </a>
+              <p>Professional WordPress management, security, and AI search visibility — so you can focus on what matters.</p>
             </div>
-            
-            <!-- Quick Links -->
-            <div class="footer-section">
-              <h3>Quick Links</h3>
-              <ul class="footer-links">
-                <li><a href="#">Home</a></li>
+
+            <div class="footer-col">
+              <h3>Services</h3>
+              <ul>
+                <li><a href="#services">Security Monitoring</a></li>
+                <li><a href="#services">Managed Updates</a></li>
+                <li><a href="#services">Daily Backups</a></li>
+                <li><a href="#services">Performance</a></li>
+                <li><a href="#geo">GEO & AI Visibility</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3>Company</h3>
+              <ul>
+                <li><a href="/">Home</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="services.html">Services Detail</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
-            
-            <!-- Services -->
-            <div class="footer-section">
-              <h3>Services</h3>
-              <ul class="footer-links">
-                <li><a href="#">WordPress Maintenance</a></li>
-                <li><a href="#">Security Monitoring</a></li>
-                <li><a href="#">Performance Optimization</a></li>
-                <li><a href="#">Daily Backups</a></li>
-                <li><a href="#">Expert Support</a></li>
-              </ul>
-            </div>
-            
-            <!-- Contact Info -->
-            <div class="footer-section">
-              <h3>Contact Us</h3>
-              <p>Ready to get started? Contact us today for professional WordPress management that keeps your website running smoothly.</p>
-              <a href="#contact" class="btn btn-primary">Get Started</a>
+
+            <div class="footer-col">
+              <h3>Get Started</h3>
+              <p>Ready to take WordPress off your plate? Let's talk about your site.</p>
+              <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Footer Bottom -->
+
       <div class="footer-bottom">
         <div class="container">
-          <div class="footer-bottom-content">
-            <p>&copy; 2024 WPWeb. All rights reserved.</p>
-            <div class="footer-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">Cookie Policy</a>
-            </div>
+          <p>&copy; 2026 WPWeb. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
           </div>
         </div>
       </div>

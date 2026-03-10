@@ -41,6 +41,8 @@
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'
 
 # Fonts
 *.woff2
@@ -51,7 +53,7 @@
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
 
-# Manifest and robots
+# Manifest, robots, and AI files
 /manifest.json
   Cache-Control: public, max-age=86400
   X-Content-Type-Options: nosniff
@@ -59,3 +61,8 @@
 /robots.txt
   Cache-Control: public, max-age=86400
   X-Content-Type-Options: nosniff
+
+/llms.txt
+  Cache-Control: public, max-age=86400
+  X-Content-Type-Options: nosniff
+  Content-Type: text/plain; charset=utf-8

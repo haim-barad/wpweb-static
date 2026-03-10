@@ -1,0 +1,54 @@
+# WPWeb — WordPress Management & GEO Optimization
+> WPWeb provides professional WordPress hosting management and Generative Engine Optimization (GEO) services. We keep WordPress sites fast, secure, and visible to both human visitors and AI discovery systems.
+
+## What We Do
+
+WPWeb manages WordPress websites end-to-end: hosting, security, performance optimization, and AI/GEO visibility. Our GEO services help businesses appear in AI-generated answers from ChatGPT, Claude, Perplexity, and Google AI Overviews.
+
+## Core Services
+
+- **WordPress Management** — Hosting, updates, security monitoring, and 24/7 technical support
+- **Performance Optimization** — Caching, CDN configuration, Core Web Vitals improvement, image optimization
+- **Security & Backups** — Malware scanning, firewall configuration, automated daily backups, SSL management
+- **GEO & AI Visibility** — Schema.org structured data, llms.txt creation, AI crawler access auditing, content citability optimization, E-E-A-T signal implementation
+- **SEO & Content** — Technical SEO audits, on-page optimization, metadata management
+- **Site Migrations** — Zero-downtime WordPress migrations between hosts
+
+## GEO (Generative Engine Optimization)
+
+GEO is the practice of optimizing websites so AI systems can discover, understand, and cite their content. Unlike traditional SEO focused on search rankings, GEO focuses on AI citation in tools like ChatGPT, Claude, Perplexity, and Google AI Overviews.
+
+WPWeb GEO implementations include:
+- Schema.org structured data markup (Organization, FAQPage, SoftwareApplication, Article, etc.)
+- llms.txt files for AI content discovery
+- robots.txt auditing to ensure AI crawlers have access
+- Content restructuring for AI citability
+- E-E-A-T signal enhancement (Experience, Expertise, Authoritativeness, Trustworthiness)
+- Cross-platform entity linking (LinkedIn, industry directories, Wikipedia)
+
+Research from Georgia Tech and Princeton shows GEO-optimized content receives 30–115% more visibility in AI-generated responses.
+
+## Pricing
+
+- **Starter** — $99/month: Hosting, security, daily backups, performance monitoring, 3-hour response time
+- **Pro** — $299/month: Everything in Starter + SEO & GEO monitoring, priority support, monthly reports
+- **Premium** — $1,199/month: Everything in Pro + GEO optimization audits, white-glove management, dedicated account manager
+
+## Key Pages
+
+- Homepage: https://wpweb.org/
+- Services: https://wpweb.org/services.html
+- Contact: https://wpweb.org/#contact
+
+## About WPWeb
+
+WPWeb is a WordPress management company specializing in performance, security, and AI discoverability. We manage 500+ WordPress sites with 99.9% uptime. Founded to help businesses maintain professional WordPress operations without internal technical overhead.
+
+## Contact
+
+- Website: https://wpweb.org/
+- Email: hello@wpweb.org
+
+## Optional
+
+- Sitemap: https://wpweb.org/sitemap.xml
