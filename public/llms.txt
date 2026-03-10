@@ -48,6 +48,7 @@ WPWeb is a WordPress management company specializing in performance, security, a
 
 - Website: https://wpweb.org/
 - Email: hello@wpweb.org
+- LinkedIn: https://www.linkedin.com/company/wpweb-org
 
 ## Optional
 
