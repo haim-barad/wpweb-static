@@ -34,6 +34,9 @@ class Shoeinv_RTEC_Integration {
     /** @var bool Whether an inventory row was actually reserved */
     private static $reserved = false;
 
+    /** @var string Sold-out error message to surface via RTEC field error */
+    private static $sold_out_message = '';
+
     // -------------------------------------------------------------------------
     // Bootstrap
     // -------------------------------------------------------------------------
@@ -98,7 +101,11 @@ class Shoeinv_RTEC_Integration {
      */
     public function configure_shoe_size_field_atts( $atts ) {
         if ( isset( $atts['shoe_size'] ) ) {
-            $atts['shoe_size']['error_message'] = __( 'אנא בחרי מידת נעל', 'shoeinv' );
+            // If a size was just tried and sold out, surface the specific message.
+            $msg = self::$sold_out_message
+                ? self::$sold_out_message
+                : __( 'אנא בחרי מידת נעל', 'shoeinv' );
+            $atts['shoe_size']['error_message'] = $msg;
             $atts['shoe_size']['required']      = true;
         }
         return $atts;
@@ -139,14 +146,15 @@ class Shoeinv_RTEC_Integration {
         $reserved = Shoeinv_DB::atomic_reserve( $event_id, $shoe_size );
 
         if ( ! $reserved ) {
-            // Empty the field so RTEC's required-field check rejects the form
-            $_POST['rtec_shoe_size'] = '';
-            // Also inject error message for RTEC to surface
-            $_POST['shoeinv_error'] = sprintf(
+            // Store the specific sold-out message so configure_shoe_size_field_atts
+            // can surface it via RTEC's field error mechanism.
+            self::$sold_out_message = sprintf(
                 /* translators: %s: shoe size */
-                esc_html__( 'מצטערים, מידה %s אזלה לשיעור זה. אנא בחרי מידה אחרת.', 'shoeinv' ),
-                esc_html( $shoe_size )
+                __( 'מצטערים, מידה %s אזלה לשיעור זה. אנא בחרי מידה אחרת.', 'shoeinv' ),
+                $shoe_size
             );
+            // Blank the field so RTEC's required-field validation triggers the error.
+            $_POST['rtec_shoe_size'] = '';
             return;
         }
 
@@ -201,7 +209,7 @@ class Shoeinv_RTEC_Integration {
         $entry_id = 0;
         if ( $email && self::$pending_event_id ) {
             $entry_id = (int) $wpdb->get_var( $wpdb->prepare(
-                "SELECT id FROM {$wpdb->prefix}rtec_registrations
+                "SELECT id FROM `{$wpdb->prefix}rtec_registrations`
                  WHERE event_id = %d AND email = %s
                  ORDER BY id DESC LIMIT 1",
                 self::$pending_event_id,
@@ -243,7 +251,7 @@ class Shoeinv_RTEC_Integration {
 
         global $wpdb;
         $entry_id = (int) $wpdb->get_var( $wpdb->prepare(
-            "SELECT id FROM {$wpdb->prefix}rtec_registrations
+            "SELECT id FROM `{$wpdb->prefix}rtec_registrations`
              WHERE event_id = %d AND email = %s AND status != 'c'
              ORDER BY id DESC LIMIT 1",
             $event_id,
@@ -338,5 +346,6 @@ class Shoeinv_RTEC_Integration {
         self::$reserved         = false;
         self::$pending_event_id = 0;
         self::$pending_size     = '';
+        self::$sold_out_message = '';
     }
 }
