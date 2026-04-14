@@ -5,11 +5,14 @@
  * Version: 1.0.0
  * Author: WPWeb
  * Text Domain: shoeinv
+ * Domain Path: /languages
  * Requires at least: 6.0
  * Requires PHP: 7.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 define( 'SHOEINV_VERSION',     '1.0.0' );
 define( 'SHOEINV_PLUGIN_DIR',  plugin_dir_path( __FILE__ ) );
