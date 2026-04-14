@@ -295,7 +295,7 @@ class Shoeinv_RTEC_Integration {
             'nonce'   => wp_create_nonce( 'shoeinv_get_sizes' ),
             'i18n'    => [
                 'choose'  => __( 'בחרי מידת נעל *', 'shoeinv' ),
-                'byos'    => __( 'אביא נעליים משלי', 'shoeinv' ),
+                'byos'    => __( 'ללא נעליים', 'shoeinv' ),
                 'label'   => __( 'מידת נעל *', 'shoeinv' ),
                 'soldOut' => __( 'אזל המלאי', 'shoeinv' ),
             ],

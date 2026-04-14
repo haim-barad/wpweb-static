@@ -164,12 +164,141 @@ class Shoeinv_Admin {
 	public function register_settings_page() {
 		add_submenu_page(
 			'edit.php?post_type=tribe_events',
+			__( 'מלאי נעליים – הרשמות', 'shoeinv' ),
 			__( 'מלאי נעליים', 'shoeinv' ),
-			__( 'מלאי נעליים', 'shoeinv' ),
+			'manage_options',
+			'shoeinv-registrations',
+			[ $this, 'render_registrations_page' ]
+		);
+		add_submenu_page(
+			'edit.php?post_type=tribe_events',
+			__( 'מלאי נעליים – הגדרות', 'shoeinv' ),
+			__( 'הגדרות מלאי נעליים', 'shoeinv' ),
 			'manage_options',
 			'shoeinv-settings',
 			[ $this, 'render_settings_page' ]
 		);
+	}
+
+	/**
+	 * Render the registrations list page — who signed up for which shoe size.
+	 */
+	public function render_registrations_page() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'אין לך הרשאה לצפות בדף זה.', 'shoeinv' ) );
+		}
+
+		global $wpdb;
+
+		// Get all events that have inventory enabled.
+		$event_ids = $wpdb->get_col(
+			"SELECT DISTINCT pm.post_id
+			 FROM {$wpdb->postmeta} pm
+			 INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+			 WHERE pm.meta_key = '_shoeinv_enabled' AND pm.meta_value = '1'
+			   AND p.post_status != 'trash'
+			 ORDER BY pm.post_id DESC"
+		);
+
+		// Optional: filter by event from query string.
+		$selected_event = isset( $_GET['shoeinv_event'] ) ? absint( $_GET['shoeinv_event'] ) : 0;
+		if ( ! $selected_event && ! empty( $event_ids ) ) {
+			$selected_event = (int) $event_ids[0];
+		}
+
+		?>
+		<div class="wrap" dir="rtl">
+			<h1><?php esc_html_e( 'מלאי נעליים – הרשמות', 'shoeinv' ); ?></h1>
+
+			<?php if ( empty( $event_ids ) ) : ?>
+				<p><?php esc_html_e( 'אין אירועים עם מלאי נעליים פעיל.', 'shoeinv' ); ?></p>
+			<?php else : ?>
+
+			<form method="get">
+				<input type="hidden" name="post_type" value="tribe_events" />
+				<input type="hidden" name="page" value="shoeinv-registrations" />
+				<select name="shoeinv_event" onchange="this.form.submit()">
+					<?php foreach ( $event_ids as $eid ) : ?>
+						<option value="<?php echo esc_attr( $eid ); ?>" <?php selected( $selected_event, (int) $eid ); ?>>
+							<?php echo esc_html( get_the_title( $eid ) ); ?> (ID <?php echo esc_html( $eid ); ?>)
+						</option>
+					<?php endforeach; ?>
+				</select>
+				<?php submit_button( __( 'הצג', 'shoeinv' ), 'secondary', '', false ); ?>
+			</form>
+
+			<?php if ( $selected_event ) :
+				// Stock summary for selected event.
+				$stock_rows = Shoeinv_DB::get_stock_for_event( $selected_event );
+				// Registrations for selected event (join reservations + rtec_registrations).
+				$registrations = $wpdb->get_results( $wpdb->prepare(
+					"SELECT r.id AS res_id, r.entry_id, r.shoe_size, r.status, r.created_at,
+					        reg.first_name, reg.last_name, reg.email
+					 FROM `{$wpdb->prefix}shoeinv_reservations` r
+					 LEFT JOIN `{$wpdb->prefix}rtec_registrations` reg ON reg.id = r.entry_id
+					 WHERE r.event_id = %d
+					 ORDER BY r.created_at DESC",
+					$selected_event
+				) );
+			?>
+
+			<h2><?php echo esc_html( get_the_title( $selected_event ) ); ?></h2>
+
+			<?php if ( ! empty( $stock_rows ) ) : ?>
+			<h3><?php esc_html_e( 'סיכום מלאי', 'shoeinv' ); ?></h3>
+			<table class="widefat striped" style="max-width:400px;margin-bottom:20px">
+				<thead><tr>
+					<th><?php esc_html_e( 'מידה', 'shoeinv' ); ?></th>
+					<th><?php esc_html_e( 'מלאי', 'shoeinv' ); ?></th>
+					<th><?php esc_html_e( 'שמורות', 'shoeinv' ); ?></th>
+					<th><?php esc_html_e( 'פנויות', 'shoeinv' ); ?></th>
+				</tr></thead>
+				<tbody>
+				<?php foreach ( $stock_rows as $sr ) : $free = max( 0, (int) $sr->total_stock - (int) $sr->reserved_count ); ?>
+					<tr>
+						<td><?php echo esc_html( $sr->shoe_size ); ?></td>
+						<td><?php echo esc_html( $sr->total_stock ); ?></td>
+						<td><?php echo esc_html( $sr->reserved_count ); ?></td>
+						<td style="color:<?php echo $free > 0 ? 'green' : 'red'; ?>"><?php echo esc_html( $free ); ?></td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+			<?php endif; ?>
+
+			<h3><?php esc_html_e( 'רשימת נרשמות', 'shoeinv' ); ?></h3>
+			<?php if ( empty( $registrations ) ) : ?>
+				<p><?php esc_html_e( 'אין הרשמות לאירוע זה.', 'shoeinv' ); ?></p>
+			<?php else : ?>
+			<table class="widefat striped">
+				<thead><tr>
+					<th><?php esc_html_e( 'שם', 'shoeinv' ); ?></th>
+					<th><?php esc_html_e( 'אימייל', 'shoeinv' ); ?></th>
+					<th><?php esc_html_e( 'מידת נעל', 'shoeinv' ); ?></th>
+					<th><?php esc_html_e( 'סטטוס', 'shoeinv' ); ?></th>
+					<th><?php esc_html_e( 'תאריך הרשמה', 'shoeinv' ); ?></th>
+				</tr></thead>
+				<tbody>
+				<?php foreach ( $registrations as $reg ) :
+					$shoe = ( 'BYOS' === $reg->shoe_size ) ? __( 'ללא נעליים', 'shoeinv' ) : esc_html( $reg->shoe_size );
+					$status_label = ( 'confirmed' === $reg->status ) ? __( 'מאושרת', 'shoeinv' ) : __( 'בוטלה', 'shoeinv' );
+					$name = trim( esc_html( $reg->first_name ) . ' ' . esc_html( $reg->last_name ) );
+				?>
+					<tr>
+						<td><?php echo $name ?: '—'; ?></td>
+						<td><?php echo esc_html( $reg->email ?: '—' ); ?></td>
+						<td><strong><?php echo esc_html( $shoe ); ?></strong></td>
+						<td><?php echo esc_html( $status_label ); ?></td>
+						<td><?php echo esc_html( $reg->created_at ); ?></td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+			<?php endif; ?>
+			<?php endif; ?>
+			<?php endif; ?>
+		</div>
+		<?php
 	}
 
 	/**
