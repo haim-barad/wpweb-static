@@ -3,13 +3,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Shoeinv_Rtec_Activator {
+class Shoeinv_Activator {
 
 	public static function activate() {
 		self::create_tables();
 
 		if ( ! get_option( 'shoeinv_db_version' ) ) {
-			add_option( 'shoeinv_db_version', SHOEINV_RTEC_VERSION );
+			add_option( 'shoeinv_db_version', SHOEINV_VERSION );
 		}
 	}
 
