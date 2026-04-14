@@ -232,11 +232,11 @@ class Shoeinv_Admin {
 	 * Handle POST submission from the settings page.
 	 */
 	public function handle_save_settings() {
-		check_admin_referer( 'shoeinv_save_settings', 'shoeinv_settings_nonce' );
-
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_die( 'Forbidden' );
 		}
+
+		check_admin_referer( 'shoeinv_save_settings', 'shoeinv_settings_nonce' );
 
 		$size_list = [];
 		if ( ! empty( $_POST['shoeinv_size_list'] ) ) {
@@ -250,7 +250,8 @@ class Shoeinv_Admin {
 			'max_class_size' => absint( $_POST['shoeinv_max_class_size'] ?? 10 ),
 		] );
 
-		wp_safe_redirect( add_query_arg( 'updated', '1', wp_get_referer() ) );
+		$redirect = wp_get_referer() ?: admin_url( 'edit.php?post_type=tribe_events&page=shoeinv-settings' );
+		wp_safe_redirect( add_query_arg( 'updated', '1', $redirect ) );
 		exit;
 	}
 
