@@ -74,12 +74,40 @@ class Shoeinv_RTEC_Integration {
     // -------------------------------------------------------------------------
 
     /**
-     * Add shoe_size to RTEC's field registry.
+     * Resolve the event ID from context (works for both page render and AJAX).
+     *
+     * @return int  tribe_events post ID, or 0 if not determinable.
+     */
+    private function current_event_id(): int {
+        // AJAX submission: event ID is in POST.
+        if ( ! empty( $_POST['rtec_event_id'] ) ) {
+            return absint( $_POST['rtec_event_id'] );
+        }
+        // Page render: use the queried object.
+        return (int) get_queried_object_id();
+    }
+
+    /**
+     * Returns true only when the current event has shoe inventory enabled.
+     */
+    private function is_inventory_event(): bool {
+        $event_id = $this->current_event_id();
+        if ( ! $event_id ) {
+            return false;
+        }
+        return '1' === get_post_meta( $event_id, '_shoeinv_enabled', true );
+    }
+
+    /**
+     * Add shoe_size to RTEC's field registry — only for inventory-enabled events.
      *
      * @param  array $fields Existing RTEC fields.
      * @return array
      */
     public function add_shoe_size_field( $fields ) {
+        if ( ! $this->is_inventory_event() ) {
+            return $fields;
+        }
         $fields['shoe_size'] = [
             'field_name'    => 'shoe_size',
             'field_type'    => 'text',
@@ -94,12 +122,15 @@ class Shoeinv_RTEC_Integration {
     }
 
     /**
-     * Configure field attributes (error message, required flag).
+     * Configure field attributes — only for inventory-enabled events.
      *
      * @param  array $atts Existing field attribute arrays.
      * @return array
      */
     public function configure_shoe_size_field_atts( $atts ) {
+        if ( ! $this->is_inventory_event() ) {
+            return $atts;
+        }
         if ( isset( $atts['shoe_size'] ) ) {
             // If a size was just tried and sold out, surface the specific message.
             $msg = self::$sold_out_message
