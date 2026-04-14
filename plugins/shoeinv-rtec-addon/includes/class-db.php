@@ -93,27 +93,6 @@ class Shoeinv_DB {
 	// -------------------------------------------------------------------------
 
 	/**
-	 * Returns all stock rows for an event, ordered by shoe_size.
-	 *
-	 * @param int $event_id  tribe_events post ID.
-	 * @return array Array of stdClass: {shoe_size, total_stock, reserved_count}.
-	 */
-	public static function get_sizes_for_event( int $event_id ): array {
-		global $wpdb;
-
-		$table = self::stock_table();
-
-		$results = $wpdb->get_results(
-			$wpdb->prepare(
-				"SELECT shoe_size, total_stock, reserved_count FROM `{$table}` WHERE event_id = %d ORDER BY shoe_size",
-				$event_id
-			)
-		);
-
-		return $results ?: [];
-	}
-
-	/**
 	 * Returns stock rows for a given tribe_events post ID.
 	 *
 	 * @param int $event_id  tribe_events post ID
@@ -334,17 +313,8 @@ class Shoeinv_DB {
 			'created_at' => current_time( 'mysql' ),
 		];
 
-		$formats = [
-			'%s',                                    // action
-			null !== $data['session_id'] ? '%d' : null, // session_id
-			null !== $data['shoe_size']  ? '%s' : null, // shoe_size
-			null !== $data['entry_id']   ? '%d' : null, // entry_id
-			'%d',                                    // user_id
-			'%s',                                    // notes
-			'%s',                                    // created_at
-		];
+		$formats = [ '%s', '%d', '%s', '%d', '%d', '%s', '%s' ];
 
-		// $wpdb->insert() handles null values correctly when format is also null.
 		$wpdb->insert( $table, $data, $formats );
 	}
 }
