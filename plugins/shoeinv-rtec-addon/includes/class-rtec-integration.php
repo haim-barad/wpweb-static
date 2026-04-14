@@ -153,6 +153,22 @@ class Shoeinv_RTEC_Integration {
         self::$pending_event_id = $event_id;
         self::$pending_size     = $shoe_size;
         self::$reserved         = true;
+
+        // Safety net: if RTEC's subsequent nonce/validation check terminates the
+        // request without firing rtec_after_registration_submit, roll back on shutdown.
+        add_action( 'shutdown', [ __CLASS__, 'rollback_if_unconfirmed' ] );
+    }
+
+    /**
+     * Shutdown handler: roll back any reservation that was never confirmed.
+     * Fires only when intercept_submission reserved a slot but confirm_reservation
+     * was never called (e.g., RTEC rejected the request at priority 10).
+     */
+    public static function rollback_if_unconfirmed(): void {
+        if ( self::$reserved ) {
+            Shoeinv_DB::rollback_reserve( self::$pending_event_id, self::$pending_size );
+            self::reset_state();
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -195,6 +211,9 @@ class Shoeinv_RTEC_Integration {
 
         if ( $entry_id > 0 ) {
             Shoeinv_DB::confirm_reservation( $entry_id, self::$pending_event_id, self::$pending_size );
+        } else {
+            // RTEC saved the entry but we couldn't find it — release the reserved slot.
+            Shoeinv_DB::rollback_reserve( self::$pending_event_id, self::$pending_size );
         }
 
         self::reset_state();
@@ -285,7 +304,7 @@ class Shoeinv_RTEC_Integration {
     public function ajax_get_sizes() {
         check_ajax_referer( 'shoeinv_get_sizes', 'nonce' );
 
-        $event_id = isset( $_POST['session_id'] ) ? absint( $_POST['session_id'] ) : 0;
+        $event_id = isset( $_POST['event_id'] ) ? absint( $_POST['event_id'] ) : 0;
         if ( $event_id <= 0 ) {
             wp_send_json_error( 'Invalid event ID' );
             return;

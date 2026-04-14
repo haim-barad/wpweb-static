@@ -31,7 +31,7 @@
     // Real-time availability via AJAX
     $.post(data.ajaxUrl, {
         action: 'shoeinv_get_sizes',
-        session_id: data.eventId,
+        event_id: data.eventId,
         nonce: data.nonce
     }, function(resp) {
         if (!resp || !resp.success || !resp.data) return;
