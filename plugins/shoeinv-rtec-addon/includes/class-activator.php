@@ -7,9 +7,30 @@ class Shoeinv_Activator {
 
 	public static function activate() {
 		self::create_tables();
+		self::maybe_migrate_columns();
 
 		if ( ! get_option( 'shoeinv_db_version' ) ) {
 			add_option( 'shoeinv_db_version', SHOEINV_VERSION );
+		}
+	}
+
+	/**
+	 * Rename legacy `session_id` columns to `event_id` if upgrading from the
+	 * shoe-inventory (WPForms) plugin. dbDelta() cannot rename columns.
+	 */
+	private static function maybe_migrate_columns() {
+		global $wpdb;
+
+		// shoeinv_stock: rename session_id → event_id if needed
+		$stock_cols = $wpdb->get_col( "SHOW COLUMNS FROM `{$wpdb->prefix}shoeinv_stock` LIKE 'session_id'" );
+		if ( ! empty( $stock_cols ) ) {
+			$wpdb->query( "ALTER TABLE `{$wpdb->prefix}shoeinv_stock` CHANGE `session_id` `event_id` BIGINT UNSIGNED NOT NULL" );
+		}
+
+		// shoeinv_reservations: rename session_id → event_id if needed
+		$res_cols = $wpdb->get_col( "SHOW COLUMNS FROM `{$wpdb->prefix}shoeinv_reservations` LIKE 'session_id'" );
+		if ( ! empty( $res_cols ) ) {
+			$wpdb->query( "ALTER TABLE `{$wpdb->prefix}shoeinv_reservations` CHANGE `session_id` `event_id` BIGINT UNSIGNED NOT NULL" );
 		}
 	}
 
