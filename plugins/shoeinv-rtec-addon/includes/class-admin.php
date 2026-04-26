@@ -29,6 +29,10 @@ class Shoeinv_Admin {
 		add_action( 'admin_enqueue_scripts',       [ $this, 'enqueue_assets' ] );
 		add_action( 'admin_menu',                  [ $this, 'register_settings_page' ] );
 		add_action( 'admin_post_shoeinv_save_settings', [ $this, 'handle_save_settings' ] );
+		add_action( 'admin_post_shoeinv_remove_registrant', [ $this, 'handle_remove_registrant' ] );
+
+		// Clean up reservations when a tribe_events post is permanently deleted.
+		add_action( 'delete_post',                 [ $this, 'handle_event_deletion' ] );
 	}
 
 	// -------------------------------------------------------------------------
@@ -207,6 +211,34 @@ class Shoeinv_Admin {
 		}
 
 		?>
+
+	/**
+	 * Render the registrations list page — who signed up for which shoe size.
+	 */
+	public function render_registrations_page() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'אין לך הרשאה לצפות בדף זה.', 'shoeinv' ) );
+		}
+
+		global $wpdb;
+
+		// Get all events that have inventory enabled.
+		$event_ids = $wpdb->get_col(
+			"SELECT DISTINCT pm.post_id
+			 FROM {$wpdb->postmeta} pm
+			 INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+			 WHERE pm.meta_key = '_shoeinv_enabled' AND pm.meta_value = '1'
+			   AND p.post_status != 'trash'
+			 ORDER BY pm.post_id DESC"
+		);
+
+		// Optional: filter by event from query string.
+		$selected_event = isset( $_GET['shoeinv_event'] ) ? absint( $_GET['shoeinv_event'] ) : 0;
+		if ( ! $selected_event && ! empty( $event_ids ) ) {
+			$selected_event = (int) $event_ids[0];
+		}
+
+		?>
 		<div class="wrap" dir="rtl">
 			<h1><?php esc_html_e( 'מלאי נעליים – הרשמות', 'shoeinv' ); ?></h1>
 
@@ -267,9 +299,7 @@ class Shoeinv_Admin {
 			<?php endif; ?>
 
 			<h3><?php esc_html_e( 'רשימת נרשמות', 'shoeinv' ); ?></h3>
-			<?php if ( empty( $registrations ) ) : ?>
-				<p><?php esc_html_e( 'אין הרשמות לאירוע זה.', 'shoeinv' ); ?></p>
-			<?php else : ?>
+			<?php if ( ! empty( $registrations ) ) : ?>
 			<table class="widefat striped">
 				<thead><tr>
 					<th><?php esc_html_e( 'שם', 'shoeinv' ); ?></th>
@@ -277,12 +307,28 @@ class Shoeinv_Admin {
 					<th><?php esc_html_e( 'מידת נעל', 'shoeinv' ); ?></th>
 					<th><?php esc_html_e( 'סטטוס', 'shoeinv' ); ?></th>
 					<th><?php esc_html_e( 'תאריך הרשמה', 'shoeinv' ); ?></th>
+					<th></th>
 				</tr></thead>
 				<tbody>
 				<?php foreach ( $registrations as $reg ) :
 					$shoe = ( 'BYOS' === $reg->shoe_size ) ? __( 'ללא נעליים', 'shoeinv' ) : esc_html( $reg->shoe_size );
 					$status_label = ( 'confirmed' === $reg->status ) ? __( 'מאושרת', 'shoeinv' ) : __( 'בוטלה', 'shoeinv' );
 					$name = trim( esc_html( $reg->first_name ) . ' ' . esc_html( $reg->last_name ) );
+
+					// Build the remove form for confirmed registrations only.
+					$remove_form = '';
+					if ( 'confirmed' === $reg->status ) {
+						$remove_nonce = wp_create_nonce( 'shoeinv_remove_registrant' );
+						$remove_url   = esc_url( admin_url( 'admin-post.php' ) );
+						$confirm_msg  = esc_js( __( 'להסיר את הנרשמת מהאירוע ולשחרר את מידת הנעל?', 'shoeinv' ) );
+						$remove_label = esc_html__( 'הסרה', 'shoeinv' );
+						$remove_form  = '<form method="post" action="' . $remove_url . '" style="display:inline">';
+						$remove_form .= '<input type="hidden" name="action" value="shoeinv_remove_registrant" />';
+						$remove_form .= '<input type="hidden" name="_shoeinv_nonce" value="' . esc_attr( $remove_nonce ) . '" />';
+						$remove_form .= '<input type="hidden" name="entry_id" value="' . (int) $reg->entry_id . '" />';
+						$remove_form .= '<button type="submit" class="button button-small" onclick="return confirm(\'' . $confirm_msg . '\')">' . $remove_label . '</button>';
+						$remove_form .= '</form>';
+					}
 				?>
 					<tr>
 						<td><?php echo $name ?: '—'; ?></td>
@@ -290,17 +336,19 @@ class Shoeinv_Admin {
 						<td><strong><?php echo esc_html( $shoe ); ?></strong></td>
 						<td><?php echo esc_html( $status_label ); ?></td>
 						<td><?php echo esc_html( $reg->created_at ); ?></td>
+						<td><?php echo $remove_form; ?></td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>
 			</table>
+			<?php else : ?>
+				<p><?php esc_html_e( 'אין הרשמות לאירוע זה.', 'shoeinv' ); ?></p>
 			<?php endif; ?>
 			<?php endif; ?>
 			<?php endif; ?>
 		</div>
 		<?php
 	}
-
 	/**
 	 * Render the plugin settings page.
 	 */
@@ -382,6 +430,75 @@ class Shoeinv_Admin {
 		$redirect = wp_get_referer() ?: admin_url( 'edit.php?post_type=tribe_events&page=shoeinv-settings' );
 		wp_safe_redirect( add_query_arg( 'updated', '1', $redirect ) );
 		exit;
+	}
+
+	// -------------------------------------------------------------------------
+	// Reservation Removal
+	// -------------------------------------------------------------------------
+
+	/**
+	 * Remove a single registrant: release their inventory slot and delete the
+	 * RTEC registration row.
+	 *
+	 * Called via admin-post.php (GET triggers the form, POST handles the action).
+	 */
+	public function handle_remove_registrant() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( 'Forbidden' );
+		}
+
+		check_admin_referer( 'shoeinv_remove_registrant', '_shoeinv_nonce' );
+
+		$entry_id = isset( $_POST['entry_id'] ) ? absint( $_POST['entry_id'] ) : 0;
+		if ( $entry_id <= 0 ) {
+			wp_safe_redirect( wp_get_referer() );
+			exit;
+		}
+
+		// 1. Release the inventory slot (no-op if already rolled back).
+		Shoeinv_DB::delete_reservation_by_entry( $entry_id );
+
+		// 2. Delete the RTEC registration row directly.
+		global $wpdb;
+		$wpdb->delete(
+			$wpdb->prefix . 'rtec_registrations',
+			[ 'id' => $entry_id ],
+			[ '%d' ]
+		);
+
+		$redirect = remove_query_arg( '_shoeinv_nonce', wp_get_referer() );
+		wp_safe_redirect( add_query_arg( 'removed', '1', $redirect ) );
+		exit;
+	}
+
+	/**
+	 * Clean up all reservations when a tribe_events post is permanently deleted.
+	 *
+	 * @param int $post_id Post ID being deleted.
+	 */
+	public function handle_event_deletion( $post_id ) {
+		if ( get_post_type( $post_id ) !== 'tribe_events' ) {
+			return;
+		}
+
+		global $wpdb;
+		$table = $wpdb->prefix . 'shoeinv_reservations';
+
+		// Release inventory for every confirmed reservation tied to this event.
+		$reservations = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT id, event_id, shoe_size FROM `{$table}` WHERE event_id = %d AND status = %s",
+				$post_id,
+				'confirmed'
+			)
+		);
+
+		foreach ( $reservations as $reservation ) {
+			Shoeinv_DB::rollback_reserve( (int) $reservation->event_id, $reservation->shoe_size );
+		}
+
+		// Delete all reservation rows for this event.
+		$wpdb->delete( $table, [ 'event_id' => $post_id ], [ '%d' ] );
 	}
 
 	// -------------------------------------------------------------------------
