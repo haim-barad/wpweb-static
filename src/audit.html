@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free AI Visibility Audit — Is Your Site Visible to ChatGPT? | WPWeb</title>
+    <meta name="theme-color" content="#E9A020" />
+    <meta name="description" content="Free instant audit: find out whether ChatGPT, Claude, and Perplexity can see, understand, and recommend your WordPress site. Get a 0–100 AI visibility score with specific fixes — no signup required." />
+    <meta name="keywords" content="AI visibility audit, GEO audit, ChatGPT optimization, AI search visibility, llms.txt, schema.org, WordPress GEO" />
+    <meta name="author" content="WPWeb" />
+    <meta property="og:title" content="Free AI Visibility Audit — Is Your WordPress Site Visible to ChatGPT?" />
+    <meta property="og:description" content="Instant 0–100 AI visibility score: schema markup, AI crawler access, llms.txt, and citability — with specific recommendations. Free, no signup." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wpweb.org/audit/" />
+    <meta property="og:image" content="https://wpweb.org/icons/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free AI Visibility Audit — WPWeb" />
+    <meta name="twitter:description" content="Instant 0–100 AI visibility score for your WordPress site. Free, no signup." />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="canonical" href="https://wpweb.org/audit/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="./styles/main.css" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://wpweb.org/#organization",
+          "name": "WPWeb",
+          "url": "https://wpweb.org",
+          "logo": { "@type": "ImageObject", "url": "https://wpweb.org/icons/icon-192.png" },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "hello@wpweb.org",
+            "availableLanguage": "English"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "WPWeb AI Visibility Audit",
+          "url": "https://wpweb.org/audit/",
+          "applicationCategory": "SEO Tool",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "description": "Free tool that scores a website's visibility to AI assistants (ChatGPT, Claude, Perplexity) on schema markup, AI crawler access, llms.txt, meta signals, content citability, and E-E-A-T — with specific recommendations.",
+          "provider": { "@id": "https://wpweb.org/#organization" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wpweb.org/" },
+            { "@type": "ListItem", "position": 2, "name": "Free AI Visibility Audit", "item": "https://wpweb.org/audit/" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What does the AI visibility audit check?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Six things AI systems rely on: Schema.org structured data, robots.txt access for AI crawlers (GPTBot, ClaudeBot, PerplexityBot), an llms.txt manifest, meta and Open Graph signals, content structure and citability, and E-E-A-T trust signals like authorship and entity linking."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the audit really free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enter any public website URL and get an instant 0–100 score with specific recommendations. No account, no email required to see your score."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a good AI visibility score?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "75+ is good, 90+ is excellent. Most WordPress sites we audit score below 50 because they lack structured data, block AI crawlers, or have no llms.txt — all fixable."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header site-header-plain">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <a href="/" class="logo-link" aria-label="WPWeb home">
+              <svg viewBox="0 0 44 44" width="36" height="36" aria-hidden="true" focusable="false">
+                <rect width="44" height="44" rx="10" fill="#E9A020"/>
+                <polyline points="8,14 14,30 22,20 30,30 36,14"
+                  fill="none" stroke="white" stroke-width="3.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="logo-text">WPWeb</span>
+            </a>
+          </div>
+
+          <ul class="nav-menu" role="menubar">
+            <li class="nav-item" role="none"><a href="/" class="nav-link" role="menuitem">Home</a></li>
+            <li class="nav-item" role="none"><a href="/#services" class="nav-link" role="menuitem">Services</a></li>
+            <li class="nav-item" role="none"><a href="/#pricing" class="nav-link" role="menuitem">Pricing</a></li>
+            <li class="nav-item" role="none"><a href="/blog/" class="nav-link" role="menuitem">Blog</a></li>
+            <li class="nav-item" role="none"><a href="/audit/" class="nav-link nav-link-active" role="menuitem" aria-current="page">Free AI Audit</a></li>
+            <li class="nav-item" role="none"><a href="#contact" class="nav-link nav-link-cta" role="menuitem">Get Started</a></li>
+          </ul>
+
+          <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu-mobile" aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="hero-section hero-section-compact">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="hero-badge" data-aos="fade-down">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <circle cx="7" cy="7" r="3" fill="#E9A020"/>
+              <circle cx="7" cy="7" r="6" stroke="#E9A020" stroke-width="1" fill="none" opacity="0.4"/>
+            </svg>
+            Free Tool · Instant Results · No Signup Required
+          </div>
+          <h1 data-aos="fade-up" data-aos-delay="100">
+            Can ChatGPT See<br><em>Your Website?</em>
+          </h1>
+          <p data-aos="fade-up" data-aos-delay="200">
+            AI assistants are becoming the new front door to the web. This free audit checks
+            whether ChatGPT, Claude, and Perplexity can discover, understand, and recommend
+            your site — and tells you exactly what to fix.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content" id="main-content">
+
+      <!-- Audit Tool -->
+      <section class="audit-section" id="audit-tool" aria-labelledby="audit-heading">
+        <div class="container container-narrow">
+          <div class="audit-card" data-aos="fade-up">
+            <form class="audit-form" id="audit-form" novalidate>
+              <label for="audit-url" class="audit-label">Enter your website address</label>
+              <div class="audit-input-row">
+                <input
+                  type="url"
+                  id="audit-url"
+                  name="url"
+                  inputmode="url"
+                  autocomplete="url"
+                  placeholder="https://yourbusiness.com"
+                  required
+                  aria-describedby="audit-url-help audit-error"
+                />
+                <button type="submit" class="btn btn-primary" id="audit-submit">
+                  <span class="btn-text">Run Free Audit</span>
+                </button>
+              </div>
+              <p class="audit-help" id="audit-url-help">We analyze the public homepage as an AI crawler sees it. Takes about 10 seconds.</p>
+              <p class="audit-error" id="audit-error" role="alert" aria-live="polite"></p>
+            </form>
+
+            <div class="audit-loading" id="audit-loading" hidden aria-live="polite">
+              <div class="audit-spinner" aria-hidden="true"></div>
+              <p id="audit-loading-text">Fetching your site…</p>
+            </div>
+
+            <!-- Results -->
+            <div class="audit-results" id="audit-results" hidden>
+              <div class="audit-score-panel">
+                <div class="audit-gauge" role="img" aria-label="">
+                  <svg viewBox="0 0 160 160" aria-hidden="true">
+                    <circle class="audit-gauge-track" cx="80" cy="80" r="68" />
+                    <circle class="audit-gauge-value" id="gauge-value" cx="80" cy="80" r="68" />
+                  </svg>
+                  <div class="audit-gauge-center">
+                    <span class="audit-score-number" id="score-number">0</span>
+                    <span class="audit-score-max">/100</span>
+                  </div>
+                </div>
+                <div class="audit-score-text">
+                  <span class="audit-grade" id="score-grade"></span>
+                  <p class="audit-score-site" id="score-site"></p>
+                  <p class="audit-grade-desc" id="grade-desc"></p>
+                </div>
+              </div>
+
+              <h3 class="audit-subheading">What we checked</h3>
+              <ul class="audit-checks" id="audit-checks" aria-label="Audit check results"></ul>
+
+              <h3 class="audit-subheading">How to improve your score</h3>
+              <ol class="audit-recs" id="audit-recs"></ol>
+
+              <div class="audit-cta" id="audit-cta">
+                <h3>Want these fixed for you?</h3>
+                <p>Get the full report plus a 15-minute call with a GEO specialist — free, no obligation. Or jump straight to our <a href="/#pricing">AI visibility plans</a>.</p>
+                <a href="#contact" class="btn btn-primary">Send Me the Full Report</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- How it works -->
+          <div class="audit-explainer" data-aos="fade-up">
+            <h2>What the audit checks</h2>
+            <p class="section-subtitle">The six signals that decide whether AI assistants recommend you — or your competitor.</p>
+            <div class="audit-explainer-grid">
+              <div class="audit-explainer-item">
+                <h3>Schema.org structured data</h3>
+                <p>Machine-readable entity markup AI models use to recognize your business, products, and FAQs.</p>
+              </div>
+              <div class="audit-explainer-item">
+                <h3>AI crawler access</h3>
+                <p>Whether GPTBot, ClaudeBot, and PerplexityBot are allowed in your robots.txt — blocked sites are invisible in AI answers.</p>
+              </div>
+              <div class="audit-explainer-item">
+                <h3>llms.txt manifest</h3>
+                <p>The emerging standard that gives AI crawlers a curated map of your most important content.</p>
+              </div>
+              <div class="audit-explainer-item">
+                <h3>Meta &amp; social signals</h3>
+                <p>Title tags, descriptions, canonicals, and Open Graph fields — quoted verbatim by AI summaries.</p>
+              </div>
+              <div class="audit-explainer-item">
+                <h3>Content citability</h3>
+                <p>Heading structure, word count, and quotable formatting — the passages AI actually cites.</p>
+              </div>
+              <div class="audit-explainer-item">
+                <h3>E-E-A-T trust signals</h3>
+                <p>Authorship, entity linking, and contact infrastructure AI uses to judge who to trust.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="faq-container audit-faq" data-aos="fade-up">
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What does the AI visibility audit check?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Six things AI systems rely on: Schema.org structured data, robots.txt access for AI crawlers (GPTBot, ClaudeBot, PerplexityBot), an llms.txt manifest, meta and Open Graph signals, content structure and citability, and E-E-A-T trust signals like authorship and entity linking.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Is the audit really free?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes. Enter any public website URL and get an instant 0–100 score with specific recommendations. No account, no email required to see your score.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What is a good AI visibility score?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>75+ is good, 90+ is excellent. Most WordPress sites we audit score below 50 because they lack structured data, block AI crawlers, or have no llms.txt — all fixable. That gap is exactly why we built the <a href="/#geo">GEO Pro plan</a>.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Does this work for non-WordPress sites?</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes — the audit works on any public website. Our managed plans are WordPress-focused, but the recommendations are valid for any stack. Note: content rendered only by JavaScript may not be visible to crawlers, which is itself a finding.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <div id="contact-form-container-audit"></div>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/" class="logo-link" aria-label="WPWeb home">
+                <svg viewBox="0 0 44 44" width="32" height="32" aria-hidden="true">
+                  <rect width="44" height="44" rx="10" fill="#E9A020"/>
+                  <polyline points="8,14 14,30 22,20 30,30 36,14"
+                    fill="none" stroke="white" stroke-width="3.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="logo-text">WPWeb</span>
+              </a>
+              <p>Professional WordPress management, security, and AI search visibility — so you can focus on what matters.</p>
+            </div>
+
+            <div class="footer-col">
+              <h3>Services</h3>
+              <ul>
+                <li><a href="/#services">Security Monitoring</a></li>
+                <li><a href="/#services">Managed Updates</a></li>
+                <li><a href="/#services">Daily Backups</a></li>
+                <li><a href="/#services">Performance</a></li>
+                <li><a href="/#geo">GEO &amp; AI Visibility</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3>Company</h3>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/audit/">Free AI Audit</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3>Get Started</h3>
+              <p>Ready to take WordPress off your plate? Let's talk about your site.</p>
+              <a href="#contact" class="btn btn-primary">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2026 WPWeb. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./scripts/audit.js"></script>
+  </body>
+</html>

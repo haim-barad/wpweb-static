@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — WordPress Management & GEO Insights | WPWeb</title>
+    <meta name="theme-color" content="#E9A020" />
+    <meta name="description" content="Practical guides on WordPress management, security, and GEO (Generative Engine Optimization) — how to get your business discovered and recommended by ChatGPT, Claude, and Perplexity." />
+    <meta property="og:title" content="WPWeb Blog — WordPress Management & GEO Insights" />
+    <meta property="og:description" content="Practical guides on WordPress management, security, and AI search visibility." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wpweb.org/blog/" />
+    <meta property="og:image" content="https://wpweb.org/icons/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="canonical" href="https://wpweb.org/blog/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="../styles/main.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://wpweb.org/#organization",
+          "name": "WPWeb",
+          "url": "https://wpweb.org",
+          "logo": { "@type": "ImageObject", "url": "https://wpweb.org/icons/icon-192.png" }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://wpweb.org/blog/#blog",
+          "name": "WPWeb Blog",
+          "url": "https://wpweb.org/blog/",
+          "description": "Guides on WordPress management, security, and GEO (AI search visibility).",
+          "publisher": { "@id": "https://wpweb.org/#organization" },
+          "blogPost": [
+            { "@type": "BlogPosting", "headline": "What Is GEO (Generative Engine Optimization)? The WordPress Guide", "url": "https://wpweb.org/blog/what-is-geo-ai-search-optimization.html", "datePublished": "2026-08-13" },
+            { "@type": "BlogPosting", "headline": "llms.txt Explained: The New Standard That Makes Your Site Legible to AI", "url": "https://wpweb.org/blog/llms-txt-explained.html", "datePublished": "2026-08-13" },
+            { "@type": "BlogPosting", "headline": "The 2026 WordPress Security Checklist: 12 Steps That Actually Matter", "url": "https://wpweb.org/blog/wordpress-security-checklist-2026.html", "datePublished": "2026-08-13" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wpweb.org/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://wpweb.org/blog/" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header site-header-plain">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <a href="/" class="logo-link" aria-label="WPWeb home">
+              <svg viewBox="0 0 44 44" width="36" height="36" aria-hidden="true" focusable="false">
+                <rect width="44" height="44" rx="10" fill="#E9A020"/>
+                <polyline points="8,14 14,30 22,20 30,30 36,14"
+                  fill="none" stroke="white" stroke-width="3.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="logo-text">WPWeb</span>
+            </a>
+          </div>
+
+          <ul class="nav-menu" role="menubar">
+            <li class="nav-item" role="none"><a href="/" class="nav-link" role="menuitem">Home</a></li>
+            <li class="nav-item" role="none"><a href="/#services" class="nav-link" role="menuitem">Services</a></li>
+            <li class="nav-item" role="none"><a href="/#pricing" class="nav-link" role="menuitem">Pricing</a></li>
+            <li class="nav-item" role="none"><a href="/blog/" class="nav-link nav-link-active" role="menuitem" aria-current="page">Blog</a></li>
+            <li class="nav-item" role="none"><a href="/audit/" class="nav-link" role="menuitem">Free AI Audit</a></li>
+            <li class="nav-item" role="none"><a href="/#contact" class="nav-link nav-link-cta" role="menuitem">Get Started</a></li>
+          </ul>
+
+          <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu-mobile" aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="hero-section hero-section-compact">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="hero-badge" data-aos="fade-down">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <circle cx="7" cy="7" r="3" fill="#E9A020"/>
+              <circle cx="7" cy="7" r="6" stroke="#E9A020" stroke-width="1" fill="none" opacity="0.4"/>
+            </svg>
+            WordPress Management · Security · GEO
+          </div>
+          <h1 data-aos="fade-up" data-aos-delay="100">The WPWeb <em>Blog</em></h1>
+          <p data-aos="fade-up" data-aos-delay="200">
+            Practical, no-fluff guides on keeping WordPress fast and secure — and getting your
+            business recommended by the AI assistants your customers now ask first.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content" id="main-content">
+      <section class="blog-section" aria-labelledby="blog-heading">
+        <div class="container">
+          <h2 id="blog-heading" class="sr-only">Latest articles</h2>
+          <div class="blog-grid">
+
+            <a class="blog-card" href="/blog/what-is-geo-ai-search-optimization.html" data-aos="fade-up" data-aos-delay="100">
+              <span class="blog-card-tag">GEO</span>
+              <h3>What Is GEO (Generative Engine Optimization)? The WordPress Guide</h3>
+              <p>SEO got you found on Google. GEO gets you cited by ChatGPT, Claude, and Perplexity. What it is, why it matters, and the five levers that move AI visibility.</p>
+              <span class="blog-card-meta">August 13, 2026 · 9 min read</span>
+              <span class="blog-card-readmore">Read article →</span>
+            </a>
+
+            <a class="blog-card" href="/blog/llms-txt-explained.html" data-aos="fade-up" data-aos-delay="200">
+              <span class="blog-card-tag">AI Discovery</span>
+              <h3>llms.txt Explained: The New Standard That Makes Your Site Legible to AI</h3>
+              <p>Robots.txt told crawlers what to skip. llms.txt tells AI what matters. Here's the format, a real example, and how to add one to a WordPress site in 20 minutes.</p>
+              <span class="blog-card-meta">August 13, 2026 · 7 min read</span>
+              <span class="blog-card-readmore">Read article →</span>
+            </a>
+
+            <a class="blog-card" href="/blog/wordpress-security-checklist-2026.html" data-aos="fade-up" data-aos-delay="300">
+              <span class="blog-card-tag">Security</span>
+              <h3>The 2026 WordPress Security Checklist: 12 Steps That Actually Matter</h3>
+              <p>Most hacked WordPress sites we clean share the same five mistakes. The 12-step checklist we run on every site we manage — including the ones clients get wrong most.</p>
+              <span class="blog-card-meta">August 13, 2026 · 8 min read</span>
+              <span class="blog-card-readmore">Read article →</span>
+            </a>
+
+          </div>
+
+          <div class="audit-cta" style="margin-top: var(--sp-16);" data-aos="fade-up">
+            <h3>Not sure where your site stands with AI?</h3>
+            <p>Run our free AI Visibility Audit — instant 0–100 score with specific recommendations. No signup required.</p>
+            <a href="/audit/" class="btn btn-primary">Run the Free Audit</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/" class="logo-link" aria-label="WPWeb home">
+                <svg viewBox="0 0 44 44" width="32" height="32" aria-hidden="true">
+                  <rect width="44" height="44" rx="10" fill="#E9A020"/>
+                  <polyline points="8,14 14,30 22,20 30,30 36,14"
+                    fill="none" stroke="white" stroke-width="3.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="logo-text">WPWeb</span>
+              </a>
+              <p>Professional WordPress management, security, and AI search visibility — so you can focus on what matters.</p>
+            </div>
+
+            <div class="footer-col">
+              <h3>Services</h3>
+              <ul>
+                <li><a href="/#services">Security Monitoring</a></li>
+                <li><a href="/#services">Managed Updates</a></li>
+                <li><a href="/#services">Daily Backups</a></li>
+                <li><a href="/#services">Performance</a></li>
+                <li><a href="/#geo">GEO &amp; AI Visibility</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3>Company</h3>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/audit/">Free AI Audit</a></li>
+                <li><a href="/#contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3>Get Started</h3>
+              <p>Ready to take WordPress off your plate? Let's talk about your site.</p>
+              <a href="/#contact" class="btn btn-primary">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2026 WPWeb. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="../scripts/blog.js"></script>
+  </body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>llms.txt Explained: Make Your WordPress Site Legible to AI | WPWeb</title>
+    <meta name="theme-color" content="#E9A020" />
+    <meta name="description" content="Robots.txt told crawlers what to skip. llms.txt tells AI what matters. The format, a real example, and how to add one to a WordPress site in 20 minutes." />
+    <meta property="og:title" content="llms.txt Explained: The New Standard That Makes Your Site Legible to AI" />
+    <meta property="og:description" content="Robots.txt told crawlers what to skip. llms.txt tells AI what matters. The format, a real example, and how to add one to a WordPress site in 20 minutes." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://wpweb.org/blog/llms-txt-explained.html" />
+    <meta property="og:image" content="https://wpweb.org/icons/og-image.png" />
+    <meta property="article:published_time" content="2026-08-13" />
+    <meta property="article:section" content="AI Discovery" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="canonical" href="https://wpweb.org/blog/llms-txt-explained.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="../styles/main.css" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": "https://wpweb.org/#organization",
+            "name": "WPWeb",
+            "url": "https://wpweb.org",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://wpweb.org/icons/icon-192.png"
+            }
+        },
+        {
+            "@type": "BlogPosting",
+            "@id": "https://wpweb.org/blog/llms-txt-explained.html#article",
+            "mainEntityOfPage": "https://wpweb.org/blog/llms-txt-explained.html",
+            "headline": "llms.txt Explained: The New Standard That Makes Your Site Legible to AI",
+            "description": "Robots.txt told crawlers what to skip. llms.txt tells AI what matters. The format, a real example, and how to add one to a WordPress site in 20 minutes.",
+            "image": "https://wpweb.org/icons/og-image.png",
+            "datePublished": "2026-08-13",
+            "dateModified": "2026-08-13",
+            "author": {
+                "@type": "Organization",
+                "name": "WPWeb",
+                "url": "https://wpweb.org"
+            },
+            "publisher": {
+                "@id": "https://wpweb.org/#organization"
+            },
+            "inLanguage": "en-US",
+            "articleSection": "AI Discovery",
+            "keywords": "llms.txt, AI crawlers, GPTBot, ClaudeBot, WordPress AI visibility, GEO",
+            "wordCount": 1000
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://wpweb.org/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://wpweb.org/blog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "llms.txt Explained: The New Standard That Makes Your Site Legible to AI",
+                    "item": "https://wpweb.org/blog/llms-txt-explained.html"
+                }
+            ]
+        }
+    ]
+}
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header site-header-plain">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <a href="/" class="logo-link" aria-label="WPWeb home">
+              <svg viewBox="0 0 44 44" width="36" height="36" aria-hidden="true" focusable="false">
+                <rect width="44" height="44" rx="10" fill="#E9A020"/>
+                <polyline points="8,14 14,30 22,20 30,30 36,14"
+                  fill="none" stroke="white" stroke-width="3.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="logo-text">WPWeb</span>
+            </a>
+          </div>
+
+          <ul class="nav-menu" role="menubar">
+            <li class="nav-item" role="none"><a href="/" class="nav-link" role="menuitem">Home</a></li>
+            <li class="nav-item" role="none"><a href="/#services" class="nav-link" role="menuitem">Services</a></li>
+            <li class="nav-item" role="none"><a href="/#pricing" class="nav-link" role="menuitem">Pricing</a></li>
+            <li class="nav-item" role="none"><a href="/blog/" class="nav-link nav-link-active" role="menuitem" aria-current="page">Blog</a></li>
+            <li class="nav-item" role="none"><a href="/audit/" class="nav-link" role="menuitem">Free AI Audit</a></li>
+            <li class="nav-item" role="none"><a href="/#contact" class="nav-link nav-link-cta" role="menuitem">Get Started</a></li>
+          </ul>
+
+          <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu-mobile" aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </nav>
+      <div class="article-header container-narrow">
+        <span class="blog-card-tag">AI Discovery</span>
+        <h1>llms.txt Explained: The New Standard That Makes Your Site Legible to AI</h1>
+        <div class="article-meta">
+          <span>By the WPWeb Team</span>
+          <span aria-hidden="true">·</span>
+          <time datetime="2026-08-13">August 13, 2026</time>
+          <span aria-hidden="true">·</span>
+          <span>7 min read</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content" id="main-content">
+      <article class="article-body container-narrow">
+        <a href="/blog/" class="article-back">← Back to blog</a>
+        <p>Every WordPress site has a robots.txt. Almost none has an llms.txt — and that's a missed opportunity that's getting more expensive by the month. As AI assistants become the front door to the web, the sites that hand AI crawlers a clear map of their content get understood better, cited more often, and recommended first.</p>
+
+        <h2>What llms.txt is</h2>
+        <p>llms.txt is an emerging standard for a plain-text file published at <code>https://yoursite.com/llms.txt</code>. Where robots.txt tells crawlers what to <em>skip</em>, llms.txt tells AI systems what <em>matters</em>: a human-and-machine-readable summary of your business, your key pages, and your content hierarchy, formatted in Markdown that large language models parse natively.</p>
+        <p>The format was proposed in late 2024 and has been gaining adoption since. It's deliberately simple — no XML, no tooling, just a text file with a defined structure:</p>
+        <ul>
+          <li><strong>Line 1:</strong> an H1 with the site or organization name</li>
+          <li><strong>Blockquote:</strong> a one-line description of what the site is</li>
+          <li><strong>Sections:</strong> H2 headings grouping links — what you do, key pages, contact details</li>
+          <li><strong>Optional section:</strong> links you'd like crawled but not highlighted</li>
+        </ul>
+
+        <h2>Why AI systems need it</h2>
+        <p>AI crawlers face a problem traditional crawlers never had: they must <em>understand</em> a site, not just index it. When GPTBot or ClaudeBot fetches a 200-page WordPress site, it has to guess what the business actually does from navigation menus, footers, and whatever page it landed on. An llms.txt removes the guesswork — it's the site owner saying, directly: "Here's who we are, here's what's important."</p>
+        <p>Sites with an llms.txt tend to get more accurate AI summaries — fewer hallucinated services, fewer misattributed details. For a business whose revenue depends on being recommended correctly, that accuracy is the point.</p>
+
+        <h2>llms.txt vs robots.txt vs sitemap.xml</h2>
+        <p>The three files do different jobs, and a well-configured site has all three:</p>
+        <ul>
+          <li><strong>robots.txt</strong> — permissions. Which crawlers may access which paths. (Check yours allows GPTBot, ClaudeBot, and PerplexityBot.)</li>
+          <li><strong>sitemap.xml</strong> — inventory. Every URL, machine-formatted, no context about what matters.</li>
+          <li><strong>llms.txt</strong> — orientation. A curated, narrated map of your most important content, written for language models.</li>
+        </ul>
+
+        <h2>A real example</h2>
+        <p>Here's the essence of <a href="/llms.txt">our own llms.txt on wpweb.org</a> (we practice what we sell):</p>
+        <blockquote># WPWeb — WordPress Management &amp; GEO Optimization<br />&gt; WPWeb provides professional WordPress hosting management and Generative Engine Optimization (GEO) services.<br /><br />## What We Do<br />WPWeb manages WordPress websites end-to-end: hosting, security, performance optimization, and AI/GEO visibility…<br /><br />## Key Pages<br />- Homepage: https://wpweb.org/<br />- Services: https://wpweb.org/services.html</blockquote>
+        <p>Twenty minutes to write. Permanent benefit every time an AI crawler visits.</p>
+
+        <h2>How to add llms.txt to WordPress (20 minutes)</h2>
+        <ol>
+          <li><strong>Draft the content.</strong> Follow the structure above: name, one-line description, sections with links to your most important pages. Plain language beats keyword stuffing — the reader is a language model, and it can tell the difference.</li>
+          <li><strong>Create the file.</strong> In WordPress, either upload <code>llms.txt</code> to your site's root directory (via your host's file manager or FTP), or add a rewrite rule that serves it. On managed hosting where you can't touch the root, a snippet plugin that outputs the text at <code>/llms.txt</code> works.</li>
+          <li><strong>Verify.</strong> Visit <code>https://yoursite.com/llms.txt</code> in a browser — you should see plain text with a <code>text/plain</code> or <code>text/markdown</code> content type.</li>
+          <li><strong>Keep it fresh.</strong> Update it when you add major pages or services. A stale llms.txt pointing at dead URLs is worse than none.</li>
+        </ol>
+
+        <h2>Common mistakes</h2>
+        <ul>
+          <li><strong>Dumping the entire sitemap in.</strong> llms.txt is a curation exercise — 10 to 30 key links, not 3,000.</li>
+          <li><strong>Blocking AI crawlers while publishing llms.txt.</strong> If robots.txt disallows GPTBot, the file never gets read. Check access first.</li>
+          <li><strong>Marketing filler instead of facts.</strong> "Industry-leading solutions" teaches the AI nothing. Specific services, specific numbers, specific pages.</li>
+        </ul>
+        <p>Want to see how your site's AI-readiness stacks up — llms.txt included? Run the <a href="/audit/">free AI Visibility Audit</a>; it checks for the file, its quality, and five other AI discovery signals. Or if you'd rather hand the whole thing off, our <a href="/#pricing">GEO Pro plan</a> includes llms.txt creation and maintenance as a core deliverable.</p>
+        <aside class="article-cta">
+          <h3>Is your site ready for AI crawlers?</h3>
+          <p>The free audit checks your llms.txt, robots.txt AI access, and five more signals — instant score, no signup.</p>
+          <a href="/audit/" class="btn btn-primary">Run the Free AI Audit</a>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/" class="logo-link" aria-label="WPWeb home">
+                <svg viewBox="0 0 44 44" width="32" height="32" aria-hidden="true">
+                  <rect width="44" height="44" rx="10" fill="#E9A020"/>
+                  <polyline points="8,14 14,30 22,20 30,30 36,14"
+                    fill="none" stroke="white" stroke-width="3.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="logo-text">WPWeb</span>
+              </a>
+              <p>Professional WordPress management, security, and AI search visibility — so you can focus on what matters.</p>
+            </div>
+
+            <div class="footer-col">
+              <h3>Services</h3>
+              <ul>
+                <li><a href="/#services">Security Monitoring</a></li>
+                <li><a href="/#services">Managed Updates</a></li>
+                <li><a href="/#services">Daily Backups</a></li>
+                <li><a href="/#services">Performance</a></li>
+                <li><a href="/#geo">GEO &amp; AI Visibility</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3>Company</h3>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/audit/">Free AI Audit</a></li>
+                <li><a href="/#contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3>Get Started</h3>
+              <p>Ready to take WordPress off your plate? Let's talk about your site.</p>
+              <a href="/#contact" class="btn btn-primary">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2026 WPWeb. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="../scripts/blog.js"></script>
+  </body>
+</html>

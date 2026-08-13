@@ -14,7 +14,12 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: './src/index.html',
-        services: './src/services.html'
+        services: './src/services.html',
+        audit: './src/audit.html',
+        'blog/index': './src/blog/index.html',
+        'blog/what-is-geo-ai-search-optimization': './src/blog/what-is-geo-ai-search-optimization.html',
+        'blog/llms-txt-explained': './src/blog/llms-txt-explained.html',
+        'blog/wordpress-security-checklist-2026': './src/blog/wordpress-security-checklist-2026.html'
       },
       output: {
         manualChunks: {

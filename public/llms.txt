@@ -42,7 +42,15 @@ All plans include hosting. Annual billing saves 17% (two months free) and waives
 
 - Homepage: https://wpweb.org/
 - Services: https://wpweb.org/services.html
+- Free AI Visibility Audit: https://wpweb.org/audit/ — enter any URL, get a 0–100 AI visibility score with recommendations
+- Blog: https://wpweb.org/blog/ — guides on WordPress management, security, and GEO
 - Contact: https://wpweb.org/#contact
+
+## Blog Articles
+
+- What Is GEO (Generative Engine Optimization)? The WordPress Guide: https://wpweb.org/blog/what-is-geo-ai-search-optimization.html
+- llms.txt Explained: The New Standard That Makes Your Site Legible to AI: https://wpweb.org/blog/llms-txt-explained.html
+- The 2026 WordPress Security Checklist: 12 Steps That Actually Matter: https://wpweb.org/blog/wordpress-security-checklist-2026.html
 
 ## About WPWeb
 
