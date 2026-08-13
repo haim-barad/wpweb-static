@@ -139,6 +139,40 @@ function initFAQAnimations() {
   })
 }
 
+// Billing period toggle (monthly / annual)
+function initBillingToggle() {
+  const sw = document.getElementById('billing-switch')
+  if (!sw) return
+
+  const labelMonthly = document.getElementById('billing-label-monthly')
+  const labelAnnual = document.getElementById('billing-label-annual')
+  const cards = document.querySelectorAll('.pricing-card[data-monthly]')
+
+  function apply(annual) {
+    sw.setAttribute('aria-checked', annual ? 'true' : 'false')
+    sw.classList.toggle('billing-switch-on', annual)
+    if (labelMonthly) labelMonthly.classList.toggle('billing-option-active', !annual)
+    if (labelAnnual) labelAnnual.classList.toggle('billing-option-active', annual)
+
+    cards.forEach(card => {
+      const amount = card.querySelector('.amount')
+      const period = card.querySelector('.period')
+      if (!amount) return
+      if (annual) {
+        amount.textContent = card.dataset.annualMonthly
+        if (period) period.textContent = '/mo · billed annually'
+      } else {
+        amount.textContent = card.dataset.monthly
+        if (period) period.textContent = '/mo'
+      }
+    })
+  }
+
+  sw.addEventListener('click', () => {
+    apply(sw.getAttribute('aria-checked') !== 'true')
+  })
+}
+
 // Pricing Card Animation
 function initPricingAnimations() {
   const pricingCards = document.querySelectorAll('.pricing-card')
@@ -184,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm()
   initSmoothScrolling()
   initFAQAnimations()
+  initBillingToggle()
   initPricingAnimations()
   initScrollAnimations()
 })

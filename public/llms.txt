@@ -30,9 +30,13 @@ Research from Georgia Tech and Princeton shows GEO-optimized content receives 30
 
 ## Pricing
 
-- **Basic** — $99/month: Hosting, security, daily backups, performance monitoring, 3-hour response time
-- **Pro** — $299/month: Everything in Starter + SEO & GEO monitoring, priority support, monthly reports
-- **Premium** — $1,199/month: Everything in Pro + GEO optimization audits, white-glove management, dedicated account manager
+All plans include hosting. Annual billing saves 17% (two months free) and waives the setup fee.
+
+- **Starter** — $59/month: Hosting, daily backups, core updates, security monitoring, uptime and SSL monitoring, email support (48h), monthly health report
+- **Core** — $149/month: Everything in Starter + tested plugin/theme updates, performance optimization, content updates, security hardening, quarterly strategy review
+- **Growth** — $399/month: Everything in Core + WooCommerce support, SEO rank tracking, staging environment, priority support (4h), monthly reports
+- **GEO Pro** — $899/month: Everything in Growth + full GEO optimization: AI visibility audit, Schema.org structured data, llms.txt, AI crawler access audit, content citability, monthly GEO report
+- **Enterprise** — $1,999/month: Everything in GEO Pro + custom development (8 hrs/mo), advanced security, dedicated account manager, 24/7 phone support, multi-site management, 99.9% uptime SLA
 
 ## Key Pages
 

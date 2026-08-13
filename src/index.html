@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WPWeb — WordPress Management, Maintenance & GEO Optimization</title>
     <meta name="theme-color" content="#E9A020" />
-    <meta name="description" content="WPWeb provides expert WordPress management, security monitoring, performance optimization, and AI visibility (GEO) services. Flat-fee plans from $99/month. 99.9% uptime guarantee." />
+    <meta name="description" content="WPWeb provides expert WordPress management, security monitoring, performance optimization, and AI visibility (GEO) services. All-inclusive flat-fee plans from $59/month. 99.9% uptime guarantee." />
     <meta name="keywords" content="WordPress maintenance, WordPress management, WordPress security, GEO optimization, AI visibility, website management, WordPress support" />
     <meta name="author" content="WPWeb" />
     <meta property="og:title" content="WPWeb — WordPress Management & GEO Optimization" />
-    <meta property="og:description" content="Expert WordPress management, security, performance, and AI search visibility. Flat-fee plans from $99/month." />
+    <meta property="og:description" content="Expert WordPress management, security, performance, and AI search visibility. All-inclusive plans from $59/month." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wpweb.org" />
     <meta property="og:image" content="https://wpweb.org/icons/og-image.png" />
@@ -17,7 +17,7 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="WPWeb — WordPress Management & GEO Optimization" />
-    <meta name="twitter:description" content="Expert WordPress management, security, performance, and AI search visibility. Plans from $99/month." />
+    <meta name="twitter:description" content="Expert WordPress management, security, performance, and AI search visibility. Plans from $59/month." />
     <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href="https://wpweb.org/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,7 +66,7 @@
           "name": "WPWeb WordPress Management",
           "url": "https://wpweb.org",
           "description": "Managed WordPress services including security monitoring, daily backups, performance optimization, plugin updates, and GEO/AI visibility optimization.",
-          "priceRange": "$99–$1199/month",
+          "priceRange": "$59–$1999/month",
           "provider": { "@id": "https://wpweb.org/#organization" },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -74,27 +74,43 @@
             "itemListElement": [
               {
                 "@type": "Offer",
-                "name": "Basic Plan",
-                "price": "99",
+                "name": "Starter Plan",
+                "price": "59",
                 "priceCurrency": "USD",
                 "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" },
-                "description": "Daily backups, core updates, security monitoring, performance optimization, email support."
+                "description": "Hosting included. Daily backups, core updates, security monitoring, uptime and SSL monitoring, email support, monthly health report."
               },
               {
                 "@type": "Offer",
-                "name": "Pro Plan",
-                "price": "299",
+                "name": "Core Plan",
+                "price": "149",
                 "priceCurrency": "USD",
                 "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" },
-                "description": "Everything in Basic plus plugin updates, content updates, SEO monitoring, analytics reports, priority support, ecommerce support."
+                "description": "Hosting included. Everything in Starter plus tested plugin and theme updates, performance optimization, content updates, security hardening, quarterly strategy review."
               },
               {
                 "@type": "Offer",
-                "name": "Premium Plan",
-                "price": "1199",
+                "name": "Growth Plan",
+                "price": "399",
                 "priceCurrency": "USD",
                 "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" },
-                "description": "Everything in Pro plus custom development, advanced security, performance audits, white-label reports, dedicated manager, 24/7 phone support."
+                "description": "Hosting included. Everything in Core plus WooCommerce support, SEO rank tracking, staging environment, priority support, monthly performance and security reports."
+              },
+              {
+                "@type": "Offer",
+                "name": "GEO Pro Plan",
+                "price": "899",
+                "priceCurrency": "USD",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" },
+                "description": "Hosting included. Everything in Growth plus full GEO optimization: AI visibility audit, Schema.org structured data, llms.txt, AI crawler access audit, content citability optimization, monthly GEO report."
+              },
+              {
+                "@type": "Offer",
+                "name": "Enterprise Plan",
+                "price": "1999",
+                "priceCurrency": "USD",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" },
+                "description": "Hosting included. Everything in GEO Pro plus custom development hours, advanced security, dedicated account manager, 24/7 phone support, multi-site management, 99.9% uptime SLA."
               }
             ]
           }
@@ -116,7 +132,7 @@
               "name": "Do you support ecommerce websites?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, we support ecommerce websites. This requires either the Pro or Premium plan due to the added complexity and higher uptime requirements of ecommerce sites."
+                "text": "Yes, we support ecommerce websites. This requires the Growth plan or higher due to the added complexity and higher uptime requirements of ecommerce sites running WooCommerce or similar."
               }
             },
             {
@@ -124,7 +140,7 @@
               "name": "How quickly do you respond to support requests?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Basic plan users receive email support within 24 hours. Pro plan users get priority support with faster response times. Premium plan users have 24/7 phone support and a dedicated account manager."
+                "text": "Starter plan users receive email support within 48 hours. Core plan users get email support within 24 hours. Growth plan users get priority support with 4-hour response. Enterprise plan users have 24/7 phone support and a dedicated account manager."
               }
             },
             {
@@ -377,73 +393,131 @@
           <div class="section-header" data-aos="fade-up">
             <span class="section-label">Plans</span>
             <h2 id="pricing-heading">Straightforward Pricing</h2>
-            <p class="section-subtitle">No hidden fees. No surprise invoices. One flat monthly rate covers everything.</p>
+            <p class="section-subtitle">One flat rate covers hosting, management, and support. No hidden fees, no surprise invoices.</p>
+          </div>
+
+          <!-- Billing Toggle -->
+          <div class="billing-toggle" data-aos="fade-up" role="group" aria-label="Billing period">
+            <span class="billing-option billing-option-active" id="billing-label-monthly">Monthly</span>
+            <button class="billing-switch" id="billing-switch" type="button" role="switch" aria-checked="false" aria-label="Switch to annual billing (save 17 percent)">
+              <span class="billing-switch-thumb" aria-hidden="true"></span>
+            </button>
+            <span class="billing-option" id="billing-label-annual">Annual <span class="billing-save">Save 17%</span></span>
           </div>
 
           <div class="pricing-grid">
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-card" data-plan="starter" data-monthly="59" data-annual="590" data-annual-monthly="49" data-aos="fade-up" data-aos-delay="100">
               <div class="pricing-header">
-                <h3>Basic</h3>
+                <h3>Starter</h3>
                 <div class="price">
                   <span class="currency">$</span>
-                  <span class="amount">99</span>
+                  <span class="amount">59</span>
                   <span class="period">/mo</span>
                 </div>
-                <p class="plan-note">$99 setup fee + high-performance hosting</p>
+                <p class="plan-note">Hosting included · $99 setup fee (waived on annual)</p>
               </div>
-              <ul class="pricing-features" aria-label="Basic plan features">
-                <li><span class="check-icon" aria-hidden="true">✓</span> Daily Backups</li>
+              <ul class="pricing-features" aria-label="Starter plan features">
+                <li><span class="check-icon" aria-hidden="true">✓</span> Daily Backups (30-day)</li>
                 <li><span class="check-icon" aria-hidden="true">✓</span> Core Updates</li>
                 <li><span class="check-icon" aria-hidden="true">✓</span> Security Monitoring</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> Performance Optimization</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> Email Support (24h)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Uptime & SSL Monitoring</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Email Support (48h)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Monthly Health Report</li>
               </ul>
               <a href="#contact" class="btn btn-outline">Get Started</a>
             </div>
 
-            <div class="pricing-card pricing-card-featured" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-card pricing-card-featured" data-plan="core" data-monthly="149" data-annual="1490" data-annual-monthly="124" data-aos="fade-up" data-aos-delay="200">
               <div class="popular-badge" aria-label="Most popular plan">Most Popular</div>
               <div class="pricing-header">
-                <h3>Pro</h3>
+                <h3>Core</h3>
                 <div class="price">
                   <span class="currency">$</span>
-                  <span class="amount">299</span>
+                  <span class="amount">149</span>
                   <span class="period">/mo</span>
                 </div>
-                <p class="plan-note">Everything in Basic, plus:</p>
+                <p class="plan-note">Hosting included · Everything in Starter, plus:</p>
               </div>
-              <ul class="pricing-features" aria-label="Pro plan features">
-                <li><span class="check-icon" aria-hidden="true">✓</span> Plugin Updates</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> Content Updates</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> SEO & GEO Monitoring</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> Analytics Reports</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> Priority Support</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> Ecommerce Support</li>
+              <ul class="pricing-features" aria-label="Core plan features">
+                <li><span class="check-icon" aria-hidden="true">✓</span> Plugin & Theme Updates (tested)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Performance Optimization</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Content Updates (2/mo)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Security Hardening (WAF, 2FA)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Email Support (24h)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Quarterly Strategy Review</li>
               </ul>
               <a href="#contact" class="btn btn-primary">Get Started</a>
             </div>
 
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="pricing-card" data-plan="growth" data-monthly="399" data-annual="3990" data-annual-monthly="332" data-aos="fade-up" data-aos-delay="300">
               <div class="pricing-header">
-                <h3>Premium</h3>
+                <h3>Growth</h3>
                 <div class="price">
                   <span class="currency">$</span>
-                  <span class="amount">1199</span>
+                  <span class="amount">399</span>
                   <span class="period">/mo</span>
                 </div>
-                <p class="plan-note">Everything in Pro, plus:</p>
+                <p class="plan-note">Hosting included · Everything in Core, plus:</p>
               </div>
-              <ul class="pricing-features" aria-label="Premium plan features">
-                <li><span class="check-icon" aria-hidden="true">✓</span> Custom Development</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> Advanced Security</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> GEO Optimization Audits</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> White-Label Reports</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> Dedicated Manager</li>
-                <li><span class="check-icon" aria-hidden="true">✓</span> 24/7 Phone Support</li>
+              <ul class="pricing-features" aria-label="Growth plan features">
+                <li><span class="check-icon" aria-hidden="true">✓</span> WooCommerce Support</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> SEO Monitoring & Rank Tracking</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Staging Environment</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Content Updates (5/mo)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Priority Support (4h)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Monthly Performance Report</li>
               </ul>
               <a href="#contact" class="btn btn-outline">Get Started</a>
             </div>
           </div>
+
+          <!-- GEO & Enterprise tiers -->
+          <div class="pricing-grid pricing-grid-premium">
+            <div class="pricing-card pricing-card-featured" data-plan="geo-pro" data-monthly="899" data-annual="8990" data-annual-monthly="749" data-aos="fade-up" data-aos-delay="100">
+              <div class="popular-badge popular-badge-geo" aria-label="AI visibility tier">AI Visibility</div>
+              <div class="pricing-header">
+                <h3>GEO Pro</h3>
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">899</span>
+                  <span class="period">/mo</span>
+                </div>
+                <p class="plan-note">Hosting included · Everything in Growth, plus full GEO:</p>
+              </div>
+              <ul class="pricing-features" aria-label="GEO Pro plan features">
+                <li><span class="check-icon" aria-hidden="true">✓</span> AI Visibility Audit</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Schema.org Structured Data</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> llms.txt Creation & Maintenance</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> AI Crawler Access Audit</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Content Citability Optimization</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Monthly GEO Visibility Report</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <div class="pricing-card" data-plan="enterprise" data-monthly="1999" data-annual="19990" data-annual-monthly="1666" data-aos="fade-up" data-aos-delay="200">
+              <div class="pricing-header">
+                <h3>Enterprise</h3>
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">1999</span>
+                  <span class="period">/mo</span>
+                </div>
+                <p class="plan-note">Hosting included · Everything in GEO Pro, plus:</p>
+              </div>
+              <ul class="pricing-features" aria-label="Enterprise plan features">
+                <li><span class="check-icon" aria-hidden="true">✓</span> Custom Development (8 hrs/mo)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Advanced Security (WAF, DDoS)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Dedicated Account Manager</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> 24/7 Phone Support (1h)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> Multi-Site Management (5 sites)</li>
+                <li><span class="check-icon" aria-hidden="true">✓</span> 99.9% Uptime SLA</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline">Talk to Us</a>
+            </div>
+          </div>
+
+          <p class="pricing-footnote" data-aos="fade-up">Annual billing = two months free. Setup fee waived on all annual plans. Not sure which tier fits? <a href="#contact">Tell us about your site</a> — we'll recommend one, no pressure.</p>
         </div>
       </section>
 
@@ -512,7 +586,7 @@
                 </span>
               </summary>
               <div class="faq-answer">
-                <p>Yes, we support ecommerce websites. This requires either the Pro or Premium plan due to the added complexity and higher uptime requirements of ecommerce sites running WooCommerce or similar.</p>
+                <p>Yes, we support ecommerce websites. This requires the Growth plan or higher due to the added complexity and higher uptime requirements of ecommerce sites running WooCommerce or similar.</p>
               </div>
             </details>
 
@@ -524,7 +598,7 @@
                 </span>
               </summary>
               <div class="faq-answer">
-                <p>Basic plan users receive email support within 24 hours. Pro plan users get priority support with faster response times. Premium plan users have 24/7 phone support and a dedicated account manager.</p>
+                <p>Starter plan users receive email support within 48 hours. Core plan users get email support within 24 hours. Growth plan users get priority support with 4-hour response times. Enterprise plan users have 24/7 phone support and a dedicated account manager.</p>
               </div>
             </details>
 
