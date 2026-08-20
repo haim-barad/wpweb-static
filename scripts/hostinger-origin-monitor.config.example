@@ -1,0 +1,60 @@
+# Example config for hostinger-origin-monitor.sh
+#
+# Copy to ~/.hostinger-monitor/config and fill in. That path is outside the
+# repo on purpose: this file is public, and the real one holds the account ID
+# and the origin IP. An origin IP behind Cloudflare should be treated as
+# sensitive — publishing it lets anyone bypass the WAF and DDoS protection by
+# connecting to the origin directly, which is precisely what the proxy prevents.
+#
+# Sourced by the script AFTER its own defaults, so anything set here wins.
+# The current origin IP is NOT set here — the monitor tracks it in
+# ~/.hostinger-monitor/baseline and updates it via --set-baseline.
+
+# ---- Hostinger account (required) --------------------------------------------
+HOSTINGER_USER="uXXXXXXXXX"            # shared-hosting account username
+PROBE_DOMAIN="example.com"             # domain used for the control-plane lookup
+PROBE_DB="uXXXXXXXXX_yyyyy"            # only used by the fallback origin lookup
+
+# ---- Sites -------------------------------------------------------------------
+# Checked publicly, through Cloudflare. Include any site you want paged about.
+SITES=(example.com www.example.com example.net)
+
+# Probed DIRECTLY against the origin IP, bypassing Cloudflare. This is the fast,
+# decisive check — keep it to two or three sites. Do NOT list sites that are not
+# actually served by this origin (e.g. a Cloudflare-hosted site with no origin
+# here); they will look permanently dead.
+ORIGIN_PROBE_SITES=(example.com example.net)
+
+# Optional. Every site genuinely served by this origin, used for the per-site
+# TTFB breakdown captured during a CPU spike — the only thing that identifies
+# which site is consuming the shared LVE, since the process table cannot.
+# Defaults to ORIGIN_PROBE_SITES if unset.
+ORIGIN_SITES=(example.com example.net)
+
+# ---- Access (optional; node-load sampling is skipped without it) -------------
+SSH_KEY="$HOME/.ssh/id_rsa"
+SSH_PORT=65002                         # Hostinger shared-hosting SSH port
+# SSH_HOST=""                          # defaults to the configured origin baseline
+
+# Address to suggest in alert triage if the configured origin dies. On Hostinger
+# the account IP and the node IP are usually two routes to the same node.
+FALLBACK_ORIGIN_IP=""
+
+# ---- Alerting ----------------------------------------------------------------
+# Telegram via Hermes is primary and needs no config here.
+# HERMES_BIN="$HOME/.local/bin/hermes"
+# TELEGRAM_TARGET="telegram"
+
+# Email is optional and stays inert unless all of SMTP_USER/PASS/HOST are set.
+ALERT_TO=""
+# SMTP_HOST=""
+# SMTP_PORT=465
+# SMTP_USER=""
+# SMTP_PASS=""
+# SMTP_FROM=""
+
+# ---- Thresholds (optional) ---------------------------------------------------
+# LOAD_ALERT_THRESHOLD=70              # node load1 that counts as oversubscribed
+# OURCPU_CAPTURE_THRESHOLD=150         # our own CPU% that triggers a process capture
+# ORIGIN_CONFIRM_TRIES=3               # probes before declaring an outage
+# ORIGIN_CONFIRM_DELAY=20              # seconds between them
